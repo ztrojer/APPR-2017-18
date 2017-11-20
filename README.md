@@ -2,10 +2,11 @@
 
 Repozitorij z gradivi pri predmetu APPR v študijskem letu 2016/17
 
-## Tematika
+## Analiza proizvedene električne energije
 
-Izbrali si boste temo, s katero se bo vaš projekt ukvarjal. Tukaj boste
-napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
+Raziskoval bom proizvodnjo električne energije v Sloveniji. Raziskal bom, iz katerih virov je proizvedena električna energija v Sloveniji in to primerjal s proizvodnjo električne energije v Nemčiji. Opazoval bom porabo energije po panogi (znotraj gospodarstva) in poraba električne energije za namen segrevanje objekta - toplotne črpalke. Skušal bom odgovoriti na naslednja vprašanja:
+1. koliko energije bi morali proizvesti (oz. ali je imamo že dovolj), če bi na cestah vozilo vse več električnih avtomobilov
+2. koloko energije bi morali proizvesti, če bi vse več gospodinjstev imelo toplotne črpalke.
 
 ## Program
 
