@@ -15,6 +15,13 @@ Raziskoval bom proizvodnjo električne energije v Sloveniji. Raziskal bom, iz ka
 4. http://ec.europa.eu/eurostat/web/energy/data/main-tables (.CSV)
 5. https://www.eles.si/trzni-podatki (.CSV)
 
+### Podatkovni model
+
+#### Tabela 1: proizvedena električna energija po proizvodnih delih v Evropi in Sloveniji 
+  
+Tabela 2: poraba električne energije po panogi znotraj gospodarstva
+Tabela 3: 
+
 ## Program
 
 Glavni program in poročilo se nahajata v datoteki `projekt.Rmd`. Ko ga prevedemo,
