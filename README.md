@@ -4,9 +4,7 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2016/17
 
 ## Analiza proizvedene električne energije
 
-Raziskoval bom proizvodnjo električne energije v Sloveniji. Raziskal bom, iz katerih virov je proizvedena električna energija v Sloveniji in to primerjal s proizvodnjo električne energije v Evropi. Opazoval bom porabo energije po panogi (znotraj gospodarstva) in poraba električne energije za namen segrevanje objekta - toplotne črpalke. Skušal bom odgovoriti na naslednja vprašanja:
-1. koliko energije bi morali proizvesti (oz. ali je imamo že dovolj), če bi na cestah vozilo vse več električnih avtomobilov
-2. koloko energije bi morali proizvesti, če bi vse več gospodinjstev imelo toplotne črpalke.
+Raziskoval bom proizvodnjo in porabo električne energije v Sloveniji in Evropi. Raziskoval bom, kako vpliva vse večje vključevanje "zelenih" porabnikov energije - električnih vozil in toplotnih črpalk, na proizvodnjo energije. Opazoval bom trend trajnostne energije. 
 
 ### Podatkovni viri 
 1. http://www.energetika-portal.si/statistika/ (.CSV)
@@ -18,9 +16,14 @@ Raziskoval bom proizvodnjo električne energije v Sloveniji. Raziskal bom, iz ka
 ### Podatkovni model
 
 #### Tabela 1: proizvedena električna energija po proizvodnih delih v Evropi in Sloveniji 
-  
-Tabela 2: poraba električne energije po panogi znotraj gospodarstva
-Tabela 3: 
+(država, vrsta elektrarne, leto, proizvedena energija)
+#### Tabela 2: poraba električne energije po panogi
+(država, panoga, leto, porabljena energija)
+#### Tabela 3: poraba energije v največjih slovenskih in evropskih podjetjih
+(podjetje, država, leto, poraba, porabljena energija)
+#### Tabela 4: prodaja električnih vozil v Evropi
+(država, model vozila, poraba energije, število)
+
 
 ## Program
 
