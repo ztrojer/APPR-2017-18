@@ -1,12 +1,19 @@
-# Analiza podatkov s programom R, 2016/17
+# Analiza podatkov s programom R, 2017/18
 
 Repozitorij z gradivi pri predmetu APPR v študijskem letu 2016/17
 
 ## Analiza proizvedene električne energije
 
-Raziskoval bom proizvodnjo električne energije v Sloveniji. Raziskal bom, iz katerih virov je proizvedena električna energija v Sloveniji in to primerjal s proizvodnjo električne energije v Nemčiji. Opazoval bom porabo energije po panogi (znotraj gospodarstva) in poraba električne energije za namen segrevanje objekta - toplotne črpalke. Skušal bom odgovoriti na naslednja vprašanja:
+Raziskoval bom proizvodnjo električne energije v Sloveniji. Raziskal bom, iz katerih virov je proizvedena električna energija v Sloveniji in to primerjal s proizvodnjo električne energije v Evropi. Opazoval bom porabo energije po panogi (znotraj gospodarstva) in poraba električne energije za namen segrevanje objekta - toplotne črpalke. Skušal bom odgovoriti na naslednja vprašanja:
 1. koliko energije bi morali proizvesti (oz. ali je imamo že dovolj), če bi na cestah vozilo vse več električnih avtomobilov
 2. koloko energije bi morali proizvesti, če bi vse več gospodinjstev imelo toplotne črpalke.
+
+### Podatkovni viri 
+1. http://www.energetika-portal.si/statistika/ (.CSV)
+2. http://pxweb.stat.si/pxweb/Database/Okolje/Okolje.asp#18 (.CSV)
+3. https://www.destatis.de/EN/FactsFigures/EconomicSectors/Energy/Production/Tables/TablesElectricity.html (.HTML)
+4. http://ec.europa.eu/eurostat/web/energy/data/main-tables (.CSV)
+5. https://www.eles.si/trzni-podatki (.CSV)
 
 ## Program
 
