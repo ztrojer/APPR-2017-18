@@ -6,7 +6,14 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2016/17
 
 Raziskoval bom proizvodnjo in porabo električne energije v Sloveniji in Evropi. Raziskoval bom, kako vpliva vse večje vključevanje "zelenih" porabnikov energije - električnih vozil in toplotnih črpalk, na proizvodnjo energije. Opazoval bom trend trajnostne energije. 
 
+Zanimajo me države, ki najbolj zmanjšujejo odvisnost od fosilnih virov energije ter zagotavljajo možnosti za zmanjševanje toplogrednih plinov.
+
+Odgovoril bom na naslednja vprašanja:
+1. Kako bo prodaja električnih vozil vplivala na proizvodnjo električne energije,
+2. iz katerih virov bo proizvedene največ energije čez 10, 20, 30 let.
+
 ### Podatkovni viri 
+
 1. http://www.energetika-portal.si/statistika/ (.CSV)
 2. http://pxweb.stat.si/pxweb/Database/Okolje/Okolje.asp#18 (.CSV)
 3. https://www.destatis.de/EN/FactsFigures/EconomicSectors/Energy/Production/Tables/TablesElectricity.html (.HTML)
@@ -23,7 +30,6 @@ Raziskoval bom proizvodnjo in porabo električne energije v Sloveniji in Evropi.
 (podjetje, država, leto, poraba, porabljena energija)
 #### Tabela 4: prodaja električnih vozil v Evropi
 (država, model vozila, poraba energije, število)
-
 
 ## Program
 
