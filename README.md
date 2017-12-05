@@ -8,7 +8,7 @@ Raziskoval bom proizvodnjo in porabo električne energije v Sloveniji in Evropi.
 
 Odgovoril bom na naslednja vprašanja:
 1. Kako bo prodaja električnih vozil vplivala na proizvodnjo električne energije,
-2. iz katerih virov bo proizvedene največ energije čez 10, 20, 30 let,
+2. iz katerih virov bo proizvedene največ energije čez določeno obdobje,
 3. kdaj se lahko spet pojavi energetska kriza (električna energija).
 
 ### Podatkovni viri 
