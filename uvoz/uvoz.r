@@ -52,3 +52,18 @@ druzine <- uvozi.druzine(levels(obcine$obcina))
 # datoteko, tukaj pa bi klicali tiste, ki jih potrebujemo v
 # 2. fazi. Seveda bi morali ustrezno datoteko uvoziti v prihodnjih
 # fazah.
+
+
+#Funkcija, ki uvozi tabelo 1: Proizvodnja električne energije po proizvodnih delih v EU
+  uvozi.tabela1 <- function () {
+    stolpci1 <- c("LETO", "DRZAVA", "ENOTA", "PRODUKT", "TIP", "VREDNOST", "KOMENTAR")
+    tabela1 <- read_csv("podatki/proizvedena_e_energija/elektrika.csv", locale=locale(encoding="cp1250"),
+                        col_names= stolpci1,
+                        skip = 1,
+                        na = "NA")
+    tabela1$'KOMENTAR' <- NULL
+    tabela1$'PRODUKT' <- NULL
+    return(tabela1)
+  }
+  
+  tabela1 <- uvozi.tabela1()
