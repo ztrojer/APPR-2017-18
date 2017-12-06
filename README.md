@@ -1,11 +1,34 @@
-# Analiza podatkov s programom R, 2016/17
+# Analiza podatkov s programom R, 2017/18
 
 Repozitorij z gradivi pri predmetu APPR v študijskem letu 2016/17
 
-## Tematika
+## Analiza proizvedene električne energije
 
-Izbrali si boste temo, s katero se bo vaš projekt ukvarjal. Tukaj boste
-napisali, kje ste dobili podatke, ter kakšen je vaš cilj.
+Raziskoval bom proizvodnjo in porabo električne energije v Sloveniji in Evropi. Raziskoval bom, kako vpliva vse večje vključevanje "zelenih" porabnikov energije - električnih vozil in toplotnih črpalk na proizvodnjo energije. Opazoval bom trend trajnostne energije. Zanimajo me države, ki najbolj zmanjšujejo odvisnost od fosilnih virov energije ter zagotavljajo možnosti za zmanjševanje toplogrednih plinov.
+
+Odgovoril bom na naslednja vprašanja:
+1. Kako bo prodaja električnih vozil vplivala na proizvodnjo električne energije,
+2. iz katerih virov bo proizvedene največ energije čez določeno obdobje,
+3. kdaj se lahko spet pojavi energetska kriza (električna energija).
+
+### Podatkovni viri 
+
+1. http://www.energetika-portal.si/statistika/ (.CSV)
+2. http://pxweb.stat.si/pxweb/Database/Okolje/Okolje.asp#18 (.CSV)
+3. https://www.destatis.de/EN/FactsFigures/EconomicSectors/Energy/Production/Tables/TablesElectricity.html (.HTML)
+4. http://ec.europa.eu/eurostat/web/energy/data/main-tables (.CSV)
+5. https://www.eles.si/trzni-podatki (.CSV)
+
+### Podatkovni model
+
+#### Tabela 1: proizvedena električna energija po proizvodnih delih v Evropi in Sloveniji 
+(država, vrsta elektrarne, leto, proizvedena energija)
+#### Tabela 2: poraba električne energije po panogi
+(država, panoga, leto, porabljena energija)
+#### Tabela 3: poraba energije v največjih slovenskih in evropskih podjetjih
+(podjetje, država, leto, poraba, porabljena energija)
+#### Tabela 4: prodaja električnih vozil v Evropi
+(država, model vozila, poraba energije, število)
 
 ## Program
 
