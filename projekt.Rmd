@@ -1,6 +1,6 @@
 ---
-title: "Poročilo pri predmetu Analiza podatkov s programom R"
-author: "Študent FMF"
+title: "Analiza proizvodnje električne energije"
+author: "Žiga Trojer"
 output:
   html_document: default
   pdf_document:
@@ -21,7 +21,23 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 # Izbira teme
 
-Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
+Raziskoval bom proizvodnjo in porabo električne energije v Sloveniji in Evropi. Raziskoval bom, kako vpliva vse večje vključevanje "zelenih" porabnikov energije - električnih vozil in toplotnih črpalk na proizvodnjo energije. Opazoval bom trend trajnostne energije. Zanimajo me države, ki najbolj zmanjšujejo odvisnost od fosilnih virov energije ter zagotavljajo možnosti za zmanjševanje toplogrednih plinov.
+
+Odgovoril bom na naslednja vprašanja:
+
+    1. kako bo prodaja električnih vozil vplivala na proizvodnjo električne energije,
+    2. iz katerih virov bo proizvedene največ energije čez določeno obdobje,
+    3. kdaj se lahko spet pojavi energetska kriza (električna energija).
+
+
+### Podatkovni viri 
+
+1. http://www.energetika-portal.si/statistika/ (.CSV)
+2. http://pxweb.stat.si/pxweb/Database/Okolje/Okolje.asp#18 (.CSV)
+3. https://www.destatis.de/EN/FactsFigures/EconomicSectors/Energy/Production/Tables/TablesElectricity.html (.HTML)
+4. http://ec.europa.eu/eurostat/web/energy/data/main-tables (.CSV)
+5. https://www.eles.si/trzni-podatki (.CSV)
+
 
 ***
 
@@ -34,23 +50,19 @@ source("uvoz/uvoz.r", encoding = "UTF-8")
 Uvozili smo podatke o občinah v obliki CSV s statističnega urada ter v obliki HTML
 z Wikipedije. Podatke imamo v dveh razpredelnicah v obliki *tidy data*.
 
-1. `druzine` - podatki o družinah za vsako občino
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `velikost.druzine` - spremenljivka: število otrok v družini (število: 1, 2, 3 ali 4, kjer zadnja vrednost pomeni 4 ali več),
-  - `stevilo.druzin` - meritev: število družin z ustreznim številom otrok v ustrezni občini (število).
+1. `tabela1` - podatki o proizvodnji električne energije v EU po proizvodnih delih
+  - `leto` - spremenljivka: leto,
+  - `drzava` - spremenljivka: ime države,
+  - `tip` - spremenljivka: proizvodni del - tip elektrarne,
+  - `vrednost` - meritev: proizvedena električna energija (v terajoulih).
 
-2. `obcine` - podatki o občinah
-  - `obcina` - spremenljivka: ime občine (neurejen faktor),
-  - `povrsina` - meritev: površina občine v km$^2$ (število),
-  - `prebivalci` - meritev: prebivalstvo občine (število),
-  - `gostota` - meritev: število prebivalcev na km$^2$ (število),
-  - `naselja` - meritev: število naselij v občini (število),
-  - `ustanovitev` - meritev: leto ustanovitve občine (število),
-  - `pokrajina` - meritev: pokrajina, ki ji občina pripada (neurejen faktor),
-  - `regija` - meritev: regija, ki ji občina pripada (neurejen faktor),
-  - `odcepitev` - meritev: podatki o občinah, od katerih se je občina odcepila (besedilo).
+1. `tabela2` - podatki o porabi električne energije v EU po panogi
+  - `leto` - spremenljivka: leto,
+  - `drzava` - spremenljivka: ime države,
+  - `tip` - spremenljivka: panoga,
+  - `vrednost` - meritev: poraba električna energija (v terajoulih).
 
-**Opomba**: da bi razpredelnica `obcine` res bila v obliki *tidy data*, bi morali odstraniti stolpec `gostota` (saj je izpeljan iz stolpcev `povrsina` in `prebivalci`), podatke o pokrajinah pa bi morali premakniti v drugo razpredelnico, saj nekatere občine pripadajo dvema pokrajinama. Podobno bi morali narediti tudi s stolpcem `odcepitev`.
+
 
 Spodnji graf prikazuje porazdelitev števila naselij v občinah.
 

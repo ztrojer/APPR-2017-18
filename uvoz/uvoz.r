@@ -20,6 +20,7 @@ uvozi.tabela1 <- function () {
       }
     }
     tabela1$'PRODUKT' <- NULL
+    tabela1$'ENOTA' <- NULL
     #tabela1$VREDNOST <- parse_integer(tabela1$VREDNOST)
     #tabela1 <- tabela1[c(2,1,4,3,5)]
     
@@ -43,6 +44,7 @@ uvozi.tabela2 <- function () {
       }
     }
     #tabela2$VREDNOST <- parse_integer(tabela2$VREDNOST)
+    tabela2$'ENOTA' <- NULL
     tabela2$'PRODUKT' <- NULL
     #tabela2 <- tabela2[c(2,1,4,3,5)]
     
