@@ -1,0 +1,25 @@
+"Energetska bilanca po: OSKRBA IN PORABA, ENERGETSKI VIR , LETO"
+
+" ";"Elektrièna energija";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" ";" "
+" ";"2000";"2001";"2002";"2003";"2004";"2005";"2006";"2007";"2008";"2009";"2010";"2011";"2012";"2013";"2014";"2015";"2016"
+"Konèna poraba";38390;39928;42563;43920;45648;46339;47873;48017;46602;41126;43425;45402;45143;45315;45215;46419;47235
+"Konèna poraba-Energetski sektor";511;590;482;497;475;464;479;511;500;468;424;404;402;389;359;385;341
+"Konèna poraba-Predelovalne dejavnosti in gradbeništvo";19764;20333;20844;23555;24156;25819;26784;26885;22720;17878;19754;21110;21318;21161;21806;22315;22445
+"Konèna poraba-Promet";954;922;619;634;680;709;713;702;706;562;621;592;572;553;490;548;597
+"Konèna poraba-Gospodinjstva";9364;9630;9734;10829;10843;10624;10998;10876;11455;11293;11589;11560;11445;11623;11252;11538;11736
+"Konèna poraba-Gospodinjstva-ogrevanje prostorov";0;0;0;0;0;0;0;0;0;1083;1179;1100;1126;1185;1209;1170;1237
+"Konèna poraba-Gospodinjstva-hlajenje prostorov";0;0;0;0;0;0;0;0;0;149;173;198;271;255;132;303;215
+"Konèna poraba-Gospodinjstva-ogrevanje sanitarne vode";0;0;0;0;0;0;0;0;0;2206;2145;2155;2156;2156;2162;2167;2183
+"Konèna poraba-Gospodinjstva-kuhanje";0;0;0;0;0;0;0;0;0;700;715;761;797;834;871;886;914
+"Konèna poraba-Gospodinjstva-razsvetljava, elektriène naprave";0;0;0;0;0;0;0;0;0;7156;7376;7347;7095;7194;6877;7012;7186
+"Konèna poraba-Kmetijstvo in gozdarstvo";0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
+"Konèna poraba-Drugi porabniki";7798;8453;10883;8406;9493;8723;8899;9043;11221;10926;11038;11736;11406;11589;11308;11634;12117
+
+"Vir: Statistièni urad Republike Slovenije, preraèun Inštitut ''Jožef "
+"Stefan'' - Center za energetsko uèinkovitost (IJS-CEU)."
+
+"Povezane vsebine:  "
+"- (seznam "
+"HREF=http://www.stat.si/StatWeb/Common/PrikaziDokument.ashx?IdDatotek-"
+"e=8167 target=_blank) Metodološka pojasnila"
+
