@@ -52,3 +52,11 @@ uvozi.tabela2 <- function () {
   }
   
   tabela2 <- uvozi.tabela2()
+  
+
+#Funkcija, ki uvozi tabelo 4: Prodaja električnih vozil v Evropi
+uvozi.tabela4 <- function() {
+    link <- "http://www.eafo.eu/vehicle-statistics/m1"
+    stran <- html_session(link) %>% read_html()
+    tabela4 <- stran %>% html_nodes(xpath="//table[@class='sticky-table']") %>% .[[1]] %>% html_table(dec = ",")
+}
