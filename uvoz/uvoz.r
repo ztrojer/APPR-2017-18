@@ -6,6 +6,7 @@ library(readr)
 library(dplyr)
 library(httr)
 library(reshape2)
+library(tidyr)
 
 #sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
@@ -23,8 +24,9 @@ uvozi.tabela1 <- function () {
     }
     tabela1$'PRODUKT' <- NULL
     tabela1$'ENOTA' <- NULL
-    #tabela1$VREDNOST <- parse_integer(tabela1$VREDNOST)
     #tabela1 <- tabela1[c(2,1,4,3,5)]
+    
+    tabela1 <- filter(tabela1, VREDNOST != "NA")
     
     return(tabela1)
   }
@@ -45,14 +47,15 @@ uvozi.tabela2 <- function () {
         Encoding(tabela2[[i]]) <- "UTF-8"
       }
     }
-    #tabela2$VREDNOST <- parse_integer(tabela2$VREDNOST)
     tabela2$'ENOTA' <- NULL
     tabela2$'PRODUKT' <- NULL
     #tabela2 <- tabela2[c(2,1,4,3,5)]
     
+    tabela2 <- filter(tabela2, VREDNOST != "NA")
+    
     return(tabela2)
-  }
-  
+}
+
   tabela2 <- uvozi.tabela2()
   
 
@@ -62,19 +65,30 @@ uvozi.tabela4 <- function() {
   json <- GET(link) %>% content()
   tabela4 <- json$data$rows %>% sapply(. %>% sapply(. %>% .$value)) %>% t() %>% data.frame()
   colnames(tabela4) <- json$data$cols %>% sapply(. %>% .$name)
-  tabela4$Ranking <- parse_number(tabela4$Ranking, na = "Others")
+  tabela4$Ranking <- NULL
+  tabela4 <- unite(tabela4, Make, Model, col = "Model", sep = " ")
+  imena_s4 <- c("MODEL", "YTD_2017", "DELEZ_NA_TRGU", "YTD_2016", "2016", "2015", "2014", "2013", "2012", "2011")
+  colnames(tabela4) <- imena_s4
+  tabela4$YTD_2017 <- parse_number(tabela4$YTD_2017)
+  tabela4$YTD_2016 <- parse_number(tabela4$YTD_2016)
+  
+  
+  return(tabela4)
 }
 
-tabela4 <- uvozi.tabela4
+tabela4 <- uvozi.tabela4()
 
 
 #Funkcija, ki uvozi tabelo 5: Prodaja električnih vozil - hibridov v Evropi
-uvozi.tabela4 <- function() {
+uvozi.tabela5 <- function() {
   link <- "http://www.eafo.eu/charts/6689/vehicles_phev_table_graph"
   json <- GET(link) %>% content()
   tabela5 <- json$data$rows %>% sapply(. %>% sapply(. %>% .$value)) %>% t() %>% data.frame()
   colnames(tabela5) <- json$data$cols %>% sapply(. %>% .$name)
-  tabela5$Ranking <- parse_number(tabela5$Ranking, na = "Others")
+  tabela5$Ranking <- NULL
+  tabela5 <- unite(tabela5, Make, Model, col = "Model", sep = " ")
+  
+  return(tabela5)
 }
 
-tabela5 <- uvozi.tabela5
+tabela5 <- uvozi.tabela5()
