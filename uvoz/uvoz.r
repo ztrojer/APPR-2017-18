@@ -5,6 +5,7 @@ library(gsubfn)
 library(readr)
 library(dplyr)
 library(httr)
+library(reshape2)
 
 #sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
@@ -59,6 +60,21 @@ uvozi.tabela2 <- function () {
 uvozi.tabela4 <- function() {
   link <- "http://www.eafo.eu/charts/6689/vehicles_bev_table_graph"
   json <- GET(link) %>% content()
-  data <- json$data$rows %>% sapply(. %>% sapply(. %>% .$value)) %>% t() %>% data.frame()
-  colnames(data) <- json$data$cols %>% sapply(. %>% .$name)
+  tabela4 <- json$data$rows %>% sapply(. %>% sapply(. %>% .$value)) %>% t() %>% data.frame()
+  colnames(tabela4) <- json$data$cols %>% sapply(. %>% .$name)
+  tabela4$Ranking <- parse_number(tabela4$Ranking, na = "Others")
 }
+
+tabela4 <- uvozi.tabela4
+
+
+#Funkcija, ki uvozi tabelo 5: Prodaja električnih vozil - hibridov v Evropi
+uvozi.tabela4 <- function() {
+  link <- "http://www.eafo.eu/charts/6689/vehicles_phev_table_graph"
+  json <- GET(link) %>% content()
+  tabela5 <- json$data$rows %>% sapply(. %>% sapply(. %>% .$value)) %>% t() %>% data.frame()
+  colnames(tabela5) <- json$data$cols %>% sapply(. %>% .$name)
+  tabela5$Ranking <- parse_number(tabela5$Ranking, na = "Others")
+}
+
+tabela5 <- uvozi.tabela5
