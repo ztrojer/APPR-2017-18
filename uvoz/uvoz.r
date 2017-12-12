@@ -4,6 +4,7 @@ library(rvest)
 library(gsubfn)
 library(readr)
 library(dplyr)
+library(httr)
 
 #sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
@@ -56,7 +57,8 @@ uvozi.tabela2 <- function () {
 
 #Funkcija, ki uvozi tabelo 4: Prodaja električnih vozil v Evropi
 uvozi.tabela4 <- function() {
-    link <- "http://www.eafo.eu/vehicle-statistics/m1"
-    stran <- html_session(link) %>% read_html()
-    tabela4 <- stran %>% html_nodes(xpath="//table[@class='sticky-table']") %>% .[[1]] %>% html_table(dec = ",")
+  link <- "http://www.eafo.eu/charts/6689/vehicles_bev_table_graph"
+  json <- GET(link) %>% content()
+  data <- json$data$rows %>% sapply(. %>% sapply(. %>% .$value)) %>% t() %>% data.frame()
+  colnames(data) <- json$data$cols %>% sapply(. %>% .$name)
 }
