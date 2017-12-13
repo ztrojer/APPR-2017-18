@@ -158,6 +158,9 @@ uvozi.tabela5 <- function() {
 
 tabela5 <- uvozi.tabela5()
 
+#Skupna tabela 4 in 5
+#tabela_avti <- bind_rows(tabela4, tabela5)
+
 #Funkcija, ki uvozi tabelo 6: Delež električne energije iz obnovljivih virov
 uvozi.tabela6 <- function() {
   stolpci6 <- c("LETO", "DRZAVA", "ENOTA", "PRODUKT", "VREDNOST")

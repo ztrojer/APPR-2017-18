@@ -36,7 +36,7 @@ Odgovoril bom na naslednja vprašanja:
 2. http://pxweb.stat.si/pxweb/Database/Okolje/Okolje.asp#18 (.CSV)
 3. https://www.destatis.de/EN/FactsFigures/EconomicSectors/Energy/Production/Tables/TablesElectricity.html (.HTML)
 4. http://ec.europa.eu/eurostat/web/energy/data/main-tables (.CSV)
-5. https://www.eles.si/trzni-podatki (.CSV)
+5. http://www.eafo.eu/vehicle-statistics/m1 (.HTML)
 
 
 ***
@@ -47,8 +47,7 @@ Odgovoril bom na naslednja vprašanja:
 source("uvoz/uvoz.r", encoding = "UTF-8")
 ```
 
-Uvozili smo podatke o občinah v obliki CSV s statističnega urada ter v obliki HTML
-z Wikipedije. Podatke imamo v dveh razpredelnicah v obliki *tidy data*.
+Uvozili smo podatke iz različnih virov (Eurostat (.CSV), drugi viri (.HTML in .JSON)).
 
 1. `tabela1` - podatki o proizvodnji električne energije v EU po proizvodnih delih
   - `leto` - spremenljivka: leto,
@@ -56,13 +55,37 @@ z Wikipedije. Podatke imamo v dveh razpredelnicah v obliki *tidy data*.
   - `tip` - spremenljivka: proizvodni del - tip elektrarne,
   - `vrednost` - meritev: proizvedena električna energija (v terajoulih).
 
-1. `tabela2` - podatki o porabi električne energije v EU po panogi
+2. `tabela2` - podatki o porabi električne energije v EU po panogi
   - `leto` - spremenljivka: leto,
   - `drzava` - spremenljivka: ime države,
   - `tip` - spremenljivka: panoga,
   - `vrednost` - meritev: poraba električna energija (v terajoulih).
-
-
+  
+3. `tabela3` - podatki o  proizvodnji energije iz obnovljivih virov
+  - `leto` - spremenljivka: leto,
+  - `drzava` - spremenljivka: ime države,
+  - `produkt` - spremenljivka: vir proizvodnje energije,
+  - `vrednost` - meritev: proizvedena energija (v terajoulih).
+  
+4. `tabela4` - podatki o  prodaji električnih vozil v Evropi
+  - `model` - spremenljivka: znamka in model avtomobila,
+  - `leto` - spremenljivka: leto prodaje,
+  - `vrednost` - meritev: število prodanih avtomobilov.
+  
+5. `tabela5` - podatki o  prodaji električnih vozil - hibridov v Evropi
+  - `model` - spremenljivka: znamka in model avtomobila,
+  - `leto` - spremenljivka: leto prodaje,
+  - `vrednost` - meritev: število prodanih avtomobilov.
+  
+6. `tabela6` - podatki o  deležu električne energije iz obnovljivih virov
+  - `leto` - spremenljivka: leto,
+  - `drzava` - spremenljivka: ime države,
+  - `vrednost` - meritev: delež električne energije iz obnovljivih virov.
+  
+7. `tabela7` - podatki o  porabi električne energije za toplotne črpalke
+  - `leto` - spremenljivka: leto,
+  - `drzava` - spremenljivka: ime države,
+  - `vrednost` - meritev: poraba električne energije za toplotne črpalke.
 
 Spodnji graf prikazuje porazdelitev števila naselij v občinah.
 

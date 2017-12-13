@@ -25,7 +25,7 @@ Odgovoril bom na naslednja vprašanja:
 (leto, država, tip elektrarne, vrednost)
 #### Tabela 2: poraba električne energije po panogi
 (leto, država, tip porabe, vrednost)
-#### Tabela 3: Proizvodnja energije iz obnovljivih virov
+#### Tabela 3: proizvodnja energije iz obnovljivih virov
 (leto, država, produkt, vrednost)
 #### Tabela 4: prodaja električnih vozil v Evropi 
 (model, leto, vrednost)
