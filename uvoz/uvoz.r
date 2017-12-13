@@ -25,16 +25,13 @@ uvozi.tabela1 <- function () {
     tabela1$'PRODUKT' <- NULL
     tabela1$'ENOTA' <- NULL
     #tabela1 <- tabela1[c(2,1,4,3,5)]
-    
     tabela1 <- filter(tabela1, VREDNOST != "NA")
     
     return(tabela1)
   }
   
-  tabela1 <- uvozi.tabela1()
+tabela1 <- uvozi.tabela1()
 
-
-  
 #Funkcija, ki uvozi tabelo 2: Poraba električne energije po panogi
 uvozi.tabela2 <- function () {
     stolpci2 <- c("LETO", "DRZAVA", "ENOTA", "PRODUKT","TIP", "VREDNOST")
@@ -56,8 +53,27 @@ uvozi.tabela2 <- function () {
     return(tabela2)
 }
 
-  tabela2 <- uvozi.tabela2()
+tabela2 <- uvozi.tabela2()
+
+#Funkcija, ki uvozi tabelo 3: Proizvodnja energije iz obnovljivih virov
+uvozi.tabela3 <- function () {
+  stolpci3 <- c("LETO", "DRZAVA", "ENOTA", "PRODUKT", "TIP", "VREDNOST")
+  tabela3 <- read_csv("podatki/proizvodnja_zelena_e/energija_zelena.csv", locale=locale(encoding="UTF-8"),
+                      col_names= stolpci3,
+                      skip = 1,
+                      na = c("0",":"))
+  for (i in 1:ncol(tabela3)) {
+    if (is.character(tabela3[[i]])) {
+      Encoding(tabela3[[i]]) <- "UTF-8"
+    }
+  }
+  tabela3$'ENOTA' <- NULL
+  tabela3 <- filter(tabela3, VREDNOST != "NA")
   
+  return(tabela3)
+}
+
+tabela3 <- uvozi.tabela3()
 
 #Funkcija, ki uvozi tabelo 4: Prodaja električnih vozil v Evropi
 uvozi.tabela4 <- function() {
@@ -94,7 +110,6 @@ uvozi.tabela4 <- function() {
 
 tabela4 <- uvozi.tabela4()
 
-
 #Funkcija, ki uvozi tabelo 5: Prodaja električnih vozil - hibridov v Evropi
 uvozi.tabela5 <- function() {
   link <- "http://www.eafo.eu/charts/6689/vehicles_phev_table_graph"
@@ -130,3 +145,24 @@ uvozi.tabela5 <- function() {
 }
 
 tabela5 <- uvozi.tabela5()
+
+#Funkcija, ki uvozi tabelo 6: Delež električne energije iz obnovljivih virov
+uvozi.tabela6 <- function() {
+  stolpci6 <- c("LETO", "DRZAVA", "ENOTA", "PRODUKT", "VREDNOST")
+  tabela6 <- read_csv("podatki/delez_zelene_e/delez_zelene_e.csv", locale=locale(encoding="UTF-8"),
+                      col_names= stolpci6,
+                      skip = 1,
+                      na = c("0",":","0.0"))
+  for (i in 1:ncol(tabela6)) {
+    if (is.character(tabela6[[i]])) {
+      Encoding(tabela3[[i]]) <- "UTF-8"
+    }
+  }
+  tabela6$'ENOTA' <- NULL
+  tabela6 <- filter(tabela6, VREDNOST != "NA")
+  
+  
+  return(tabela6)
+}
+  
+tabela6 <- uvozi.tabela6()

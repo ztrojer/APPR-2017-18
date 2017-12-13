@@ -1,6 +1,6 @@
 # Analiza podatkov s programom R, 2017/18
 
-Repozitorij z gradivi pri predmetu APPR v študijskem letu 2016/17
+Repozitorij z gradivi pri predmetu APPR v študijskem letu 2017/18
 
 ## Analiza proizvedene električne energije
 
@@ -25,10 +25,11 @@ Odgovoril bom na naslednja vprašanja:
 (država, vrsta elektrarne, leto, proizvedena energija)
 #### Tabela 2: poraba električne energije po panogi
 (država, panoga, leto, porabljena energija)
-#### Tabela 3: poraba energije v največjih slovenskih in evropskih podjetjih
+#### Tabela 3: Proizvodnja energije iz obnovljivih virov
 (podjetje, država, leto, poraba, porabljena energija)
 #### Tabela 4: prodaja električnih vozil v Evropi
 (država, model vozila, poraba energije, število)
+
 
 ## Program
 
