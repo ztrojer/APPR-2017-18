@@ -17,19 +17,24 @@ Odgovoril bom na naslednja vprašanja:
 2. http://pxweb.stat.si/pxweb/Database/Okolje/Okolje.asp#18 (.CSV)
 3. https://www.destatis.de/EN/FactsFigures/EconomicSectors/Energy/Production/Tables/TablesElectricity.html (.HTML)
 4. http://ec.europa.eu/eurostat/web/energy/data/main-tables (.CSV)
-5. https://www.eles.si/trzni-podatki (.CSV)
+5. http://www.eafo.eu/vehicle-statistics/m1 (.HTML)
 
 ### Podatkovni model
 
 #### Tabela 1: proizvedena električna energija po proizvodnih delih v Evropi in Sloveniji 
-(država, vrsta elektrarne, leto, proizvedena energija)
+(leto, država, tip elektrarne, vrednost)
 #### Tabela 2: poraba električne energije po panogi
-(država, panoga, leto, porabljena energija)
+(leto, država, tip porabe, vrednost)
 #### Tabela 3: Proizvodnja energije iz obnovljivih virov
-(podjetje, država, leto, poraba, porabljena energija)
-#### Tabela 4: prodaja električnih vozil v Evropi
-(država, model vozila, poraba energije, število)
-
+(leto, država, produkt, vrednost)
+#### Tabela 4: prodaja električnih vozil v Evropi 
+(model, leto, vrednost)
+#### Tabela 5: prodaja električnih vozil (hibridi) v Evropi 
+(model, leto, vrednost)
+#### Tabela 6: delež električne energije iz obnovljivih virov
+(leto, država, vrednost)
+#### Tabela 7: poraba električne energije za toplotne črpalke
+(leto, država, vrednost)
 
 ## Program
 
