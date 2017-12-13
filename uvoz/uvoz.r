@@ -69,6 +69,9 @@ uvozi.tabela3 <- function () {
   }
   tabela3$'ENOTA' <- NULL
   tabela3 <- filter(tabela3, VREDNOST != "NA")
+  tabela3 <- filter(tabela3, TIP != "Gross inland consumption")
+  tabela3$'TIP' <- NULL
+  
   
   return(tabela3)
 }
@@ -86,6 +89,11 @@ uvozi.tabela4 <- function() {
   imena_s4 <- c("MODEL", "YTD_2017", "DELEZ_NA_TRGU", "YTD_2016", "2016", "2015", "2014", "2013", "2012", "2011")
   colnames(tabela4) <- imena_s4
   tabela4$MODEL[11] <- "Ostali"
+  for (i in 1:ncol(tabela4)) {
+    if (is.character(tabela4[[i]])) {
+      Encoding(tabela4[[i]]) <- "UTF-8"
+    }
+  }
   tabela4$YTD_2017 <- parse_number(tabela4$YTD_2017)
   tabela4$YTD_2016 <- parse_number(tabela4$YTD_2016)
   tabela4$`2016` <- parse_number(tabela4$`2016`)
@@ -118,7 +126,11 @@ uvozi.tabela5 <- function() {
   colnames(tabela5) <- json$data$cols %>% sapply(. %>% .$name)
   tabela5$Ranking <- NULL
   tabela5 <- unite(tabela5, Make, Model, col = "Model", sep = " ")
-  
+  for (i in 1:ncol(tabela5)) {
+    if (is.character(tabela5[[i]])) {
+      Encoding(tabela5[[i]]) <- "UTF-8"
+    }
+  }
   imena_s5 <- c("MODEL", "YTD_2017", "DELEZ_NA_TRGU", "YTD_2016", "2016", "2015", "2014", "2013", "2012", "2011")
   colnames(tabela5) <- imena_s5
   tabela5$MODEL[11] <- "Ostali"
@@ -155,14 +167,39 @@ uvozi.tabela6 <- function() {
                       na = c("0",":","0.0"))
   for (i in 1:ncol(tabela6)) {
     if (is.character(tabela6[[i]])) {
-      Encoding(tabela3[[i]]) <- "UTF-8"
+      Encoding(tabela6[[i]]) <- "UTF-8"
     }
   }
   tabela6$'ENOTA' <- NULL
   tabela6 <- filter(tabela6, VREDNOST != "NA")
+  tabela6$'PRODUKT' <- NULL
   
   
   return(tabela6)
 }
   
 tabela6 <- uvozi.tabela6()
+
+
+#Funkcija, ki uvozi tabelo 7: Poraba električne energije za toplotne črpalke
+uvozi.tabela7 <- function() {
+  stolpci7 <- c("LETO", "DRZAVA", "ENOTA", "PRODUKT", "TIP", "VREDNOST")
+  tabela7 <- read_csv("podatki/toplotne_crpalke/topl_crp.csv", locale=locale(encoding="UTF-8"),
+                      col_names= stolpci7,
+                      skip = 1,
+                      na = c("0",":"))
+  for (i in 1:ncol(tabela7)) {
+    if (is.character(tabela7[[i]])) {
+      Encoding(tabela7[[i]]) <- "UTF-8"
+    }
+  }
+  tabela7$'ENOTA' <- NULL
+  tabela7$'PRODUKT' <- NULL
+  tabela7$'TIP' <- NULL
+  tabela7 <- filter(tabela7, VREDNOST != "NA")
+
+  
+  return(tabela7)
+}
+
+tabela7 <- uvozi.tabela7()
