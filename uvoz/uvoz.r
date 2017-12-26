@@ -1,13 +1,5 @@
 # 2. faza: Uvoz podatkov
 
-library(rvest)
-library(gsubfn)
-library(readr)
-library(dplyr)
-library(httr)
-library(reshape2)
-library(tidyr)
-
 #sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
 
 #Funkcija, ki uvozi tabelo 1: Proizvodnja električne energije po proizvodnih delih v EU
@@ -26,6 +18,12 @@ uvozi.tabela1 <- function () {
     tabela1$'ENOTA' <- NULL
     #tabela1 <- tabela1[c(2,1,4,3,5)]
     tabela1 <- filter(tabela1, VREDNOST != "NA")
+    tabela1$TIP <- gsub("Gross electricity generation Main activity electricity only -", "", tabela1$TIP)
+    tabela1$DRZAVA <- gsub(" \\(28 countries\\)", "", tabela1$DRZAVA)
+    tabela1$DRZAVA <- gsub(" \\(19 countries\\)", "", tabela1$DRZAVA)
+    tabela1$DRZAVA <- gsub(" \\(until 1990 former territory of the FRG\\)", "", tabela1$DRZAVA)
+    tabela1$DRZAVA <- gsub("Former Yugoslav Republic of Macedonia, the", "Former Yugoslav", tabela1$DRZAVA)
+    tabela1$DRZAVA <- gsub(" \\(under United Nations Security Council Resolution 1244/99\\)", "", tabela1$DRZAVA)
     
     return(tabela1)
   }
@@ -49,6 +47,11 @@ uvozi.tabela2 <- function () {
     #tabela2 <- tabela2[c(2,1,4,3,5)]
     
     tabela2 <- filter(tabela2, VREDNOST != "NA")
+    tabela2$DRZAVA <- gsub(" \\(28 countries\\)", "", tabela2$DRZAVA)
+    tabela2$DRZAVA <- gsub(" \\(19 countries\\)", "", tabela2$DRZAVA)
+    tabela2$DRZAVA <- gsub(" \\(until 1990 former territory of the FRG\\)", "", tabela2$DRZAVA)
+    tabela2$DRZAVA <- gsub("Former Yugoslav Republic of Macedonia, the", "Former Yugoslav", tabela2$DRZAVA)
+    tabela2$DRZAVA <- gsub(" \\(under United Nations Security Council Resolution 1244/99\\)", "", tabela2$DRZAVA)
     
     return(tabela2)
 }
@@ -71,6 +74,11 @@ uvozi.tabela3 <- function () {
   tabela3 <- filter(tabela3, VREDNOST != "NA")
   tabela3 <- filter(tabela3, TIP != "Gross inland consumption")
   tabela3$'TIP' <- NULL
+  tabela3$DRZAVA <- gsub(" \\(28 countries\\)", "", tabela3$DRZAVA)
+  tabela3$DRZAVA <- gsub(" \\(19 countries\\)", "", tabela3$DRZAVA)
+  tabela3$DRZAVA <- gsub(" \\(until 1990 former territory of the FRG\\)", "", tabela3$DRZAVA)
+  tabela3$DRZAVA <- gsub("Former Yugoslav Republic of Macedonia, the", "Former Yugoslav", tabela3$DRZAVA)
+  tabela3$DRZAVA <- gsub(" \\(under United Nations Security Council Resolution 1244/99\\)", "", tabela3$DRZAVA)
   
   
   return(tabela3)
@@ -177,6 +185,12 @@ uvozi.tabela6 <- function() {
   tabela6 <- filter(tabela6, VREDNOST != "NA")
   tabela6$'PRODUKT' <- NULL
   
+  tabela6$DRZAVA <- gsub(" \\(28 countries\\)", "", tabela6$DRZAVA)
+  tabela6$DRZAVA <- gsub(" \\(19 countries\\)", "", tabela6$DRZAVA)
+  tabela6$DRZAVA <- gsub(" \\(until 1990 former territory of the FRG\\)", "", tabela6$DRZAVA)
+  tabela6$DRZAVA <- gsub("Former Yugoslav Republic of Macedonia, the", "Former Yugoslav", tabela6$DRZAVA)
+  tabela6$DRZAVA <- gsub(" \\(under United Nations Security Council Resolution 1244/99\\)", "", tabela6$DRZAVA)
+  
   
   return(tabela6)
 }
@@ -200,6 +214,11 @@ uvozi.tabela7 <- function() {
   tabela7$'PRODUKT' <- NULL
   tabela7$'TIP' <- NULL
   tabela7 <- filter(tabela7, VREDNOST != "NA")
+  tabela7$DRZAVA <- gsub(" \\(28 countries\\)", "", tabela7$DRZAVA)
+  tabela7$DRZAVA <- gsub(" \\(19 countries\\)", "", tabela7$DRZAVA)
+  tabela7$DRZAVA <- gsub(" \\(until 1990 former territory of the FRG\\)", "", tabela7$DRZAVA)
+  tabela7$DRZAVA <- gsub("Former Yugoslav Republic of Macedonia, the", "Former Yugoslav", tabela7$DRZAVA)
+  tabela7$DRZAVA <- gsub(" \\(under United Nations Security Council Resolution 1244/99\\)", "", tabela7$DRZAVA)
 
   
   return(tabela7)
