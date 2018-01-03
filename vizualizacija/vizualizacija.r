@@ -51,7 +51,6 @@ library(dplyr)
   tabela_3 <- inner_join(tabela_1, tabela_2, by = c("LETO"))
   tabela_3_num <- apply(tabela_3[, -1], 1, sum)
   tabela_3 <- cbind(PRODANI_AVTOMOBILI = tabela_3_num, tabela_3) 
-<<<<<<< HEAD
   prodani_avtomobili <- tabela_3[c(2,3,4,1)]
   prodani_avtomobili$PRODANI_AVTOMOBILI_EL <- NULL
   prodani_avtomobili$PRODANI_AVTOMOBILI_HIB <- NULL
@@ -60,6 +59,6 @@ library(dplyr)
   proizvedena_en <- tabela1 %>% filter(DRZAVA == 'European Union') %>% group_by(LETO) %>% summarize(PROIZVEDENA_EN = sum(VREDNOST))
   
   prodaja_avt_proiz_en <- inner_join(proizvedena_en, prodani_avtomobili) %>%  melt(id.vars="LETO", variable.name = "meritev", value.name = 'stevilo')
-=======
+
   prodani_avtomobili <- tabela_3[c(2,3,4,1)]
->>>>>>> 44ded65a2c217a2ad7ef877bd725dca94c538d5e
+
