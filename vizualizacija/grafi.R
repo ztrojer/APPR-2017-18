@@ -24,7 +24,7 @@ graf2 <- ggplot(tabela.1 %>% filter(DRZAVA %in% izbrane_drzave2$DRZAVA)) + aes(x
 #GRAF 3
 
 #prodaja avtomobilov v Evropski uniji po letih
-tabela_1 <- tabela4 %>% groupP_by(LETO) %>% summarize(PRODANI_AVTOMOBILI_EL = sum(VREDNOST))
+tabela_1 <- tabela4 %>% group_by(LETO) %>% summarize(PRODANI_AVTOMOBILI_EL = sum(VREDNOST)) 
 tabela_2 <- tabela5 %>% group_by(LETO) %>% summarize(PRODANI_AVTOMOBILI_HIB = sum(VREDNOST))
 tabela_3 <- inner_join(tabela_1, tabela_2, by = c("LETO"))
 tabela_3_num <- apply(tabela_3[, -1], 1, sum)
@@ -48,4 +48,19 @@ top2 <- quantile(skupni_podatki2$POVPRECJE, 0.85)
 izbrane_drzave3 <- skupni_podatki2 %>% filter(POVPRECJE >= top2)
 
 graf4 <- ggplot(filter2 %>% filter(DRZAVA %in% izbrane_drzave3$DRZAVA)) + aes(x = LETO, y = VREDNOST, colour = DRZAVA) + geom_line()
+
+#GRAF 5
+
+#toplotne črpalke
+filter3 <- tabela7 %>% filter(DRZAVA != "Euro area" & DRZAVA != "European Union")
+
+skupni_podatki3 <- filter3 %>% group_by(DRZAVA) %>% summarise(VREDNOST = sum(VREDNOST))
+top3 <- quantile(filter3$VREDNOST, 0.8)
+
+izbrane_drzave4 <- skupni_podatki3 %>% filter(VREDNOST > top3)
+
+graf5 <- ggplot(filter3 %>% filter(DRZAVA %in% izbrane_drzave4$DRZAVA)) + aes(x=LETO, y = VREDNOST, colour = DRZAVA) + geom_line()
+
+
+
 

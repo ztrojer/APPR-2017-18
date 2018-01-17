@@ -93,34 +93,14 @@ uvozi.tabela4 <- function() {
   tabela4 <- json$data$rows %>% sapply(. %>% sapply(. %>% .$value)) %>% t() %>% data.frame()
   colnames(tabela4) <- json$data$cols %>% sapply(. %>% .$name)
   tabela4$Ranking <- NULL
-  tabela4 <- unite(tabela4, Make, Model, col = "Model", sep = " ")
-  imena_s4 <- c("MODEL", "YTD_2017", "DELEZ_NA_TRGU", "YTD_2016", "2016", "2015", "2014", "2013", "2012", "2011")
-  colnames(tabela4) <- imena_s4
+  colnames(tabela4) <- c("PROIZVAJALEC", "MODEL", "YTD_2017", "DELEZ_2017",
+                         "YTD_2016", 2016, "DELEZ_2016", 2015:2011)
+  tabela4 <- unite(tabela4, PROIZVAJALEC, MODEL, col = MODEL, sep = " ")
+  tabela4 <- tabela4[, c("MODEL", 2016:2011)]
   tabela4$MODEL[11] <- "Ostali"
-  for (i in 1:ncol(tabela4)) {
-    if (is.character(tabela4[[i]])) {
-      Encoding(tabela4[[i]]) <- "UTF-8"
-    }
-  }
-  tabela4$YTD_2017 <- parse_number(tabela4$YTD_2017)
-  tabela4$YTD_2016 <- parse_number(tabela4$YTD_2016)
-  tabela4$`2016` <- parse_number(tabela4$`2016`)
-  tabela4$`2015`<- parse_number(tabela4$`2015`)
-  tabela4$`2014`<- parse_number(tabela4$`2014`)
-  tabela4$`2013` <- parse_number(tabela4$`2013`)
-  tabela4$`2012` <- parse_number(tabela4$`2012`)
-  tabela4$`2011` <- parse_number(tabela4$`2011`)
-  #tabela4$DELEZ_NA_TRGU <- gsub(",","\\.", tabela4$DELEZ_NA_TRGU)
-  #tabela4$DELEZ_NA_TRGU <- as.numeric(sub("%", "", tabela4$DELEZ_NA_TRGU))
-  tabela4$DELEZ_NA_TRGU <- NULL
-  tabela4$YTD_2016 <- NULL
-  tabela4$YTD_2017 <- NULL
-  tabela4 <- melt(tabela4, id = c("MODEL"))
-  imena_ns4 <- c("MODEL", "LETO", "VREDNOST")
-  colnames(tabela4) <- imena_ns4
-  tabela4 <- filter(tabela4, VREDNOST != "0")
-  tabela4$VREDNOST <- parse_integer(tabela4$VREDNOST)
-  
+  tabela4 <- melt(tabela4, id.vars = "MODEL", variable.name = "LETO", value.name = "VREDNOST") %>%
+    mutate(LETO = parse_integer(LETO),
+           VREDNOST = parse_integer(VREDNOST)) %>% filter(VREDNOST != 0)
   return(tabela4)
 }
 
@@ -133,34 +113,14 @@ uvozi.tabela5 <- function() {
   tabela5 <- json$data$rows %>% sapply(. %>% sapply(. %>% .$value)) %>% t() %>% data.frame()
   colnames(tabela5) <- json$data$cols %>% sapply(. %>% .$name)
   tabela5$Ranking <- NULL
-  tabela5 <- unite(tabela5, Make, Model, col = "Model", sep = " ")
-  for (i in 1:ncol(tabela5)) {
-    if (is.character(tabela5[[i]])) {
-      Encoding(tabela5[[i]]) <- "UTF-8"
-    }
-  }
-  imena_s5 <- c("MODEL", "YTD_2017", "DELEZ_NA_TRGU", "YTD_2016", "2016", "2015", "2014", "2013", "2012", "2011")
-  colnames(tabela5) <- imena_s5
+  colnames(tabela5) <- c("PROIZVAJALEC", "MODEL", "YTD_2017", "DELEZ_2017",
+                         "YTD_2016", 2016, "DELEZ_2016", 2015:2011)
+  tabela5 <- unite(tabela5, PROIZVAJALEC, MODEL, col = MODEL, sep = " ")
+  tabela5 <- tabela5[, c("MODEL", 2016:2011)]
   tabela5$MODEL[11] <- "Ostali"
-  tabela5$YTD_2017 <- parse_number(tabela5$YTD_2017)
-  tabela5$YTD_2016 <- parse_number(tabela5$YTD_2016)
-  tabela5$`2016` <- parse_number(tabela5$`2016`)
-  tabela5$`2015`<- parse_number(tabela5$`2015`)
-  tabela5$`2014`<- parse_number(tabela5$`2014`)
-  tabela5$`2013` <- parse_number(tabela5$`2013`)
-  tabela5$`2012` <- parse_number(tabela5$`2012`)
-  tabela5$`2011` <- parse_number(tabela5$`2011`)
-  #tabela5$DELEZ_NA_TRGU <- gsub(",","\\.", tabela5$DELEZ_NA_TRGU)
-  #tabela5$DELEZ_NA_TRGU <- as.numeric(sub("%", "", tabela5$DELEZ_NA_TRGU))
-  tabela5$DELEZ_NA_TRGU <- NULL
-  tabela5$YTD_2016 <- NULL
-  tabela5$YTD_2017 <- NULL
-  tabela5 <- melt(tabela5, id = c("MODEL"))
-  imena_ns5 <- c("MODEL", "LETO", "VREDNOST")
-  colnames(tabela5) <- imena_ns5
-  tabela5 <- filter(tabela5, VREDNOST != "0")
-  tabela5$VREDNOST <- parse_integer(tabela5$VREDNOST)
-  
+  tabela5 <- melt(tabela5, id.vars = "MODEL", variable.name = "LETO", value.name = "VREDNOST") %>%
+    mutate(LETO = parse_integer(LETO),
+           VREDNOST = parse_integer(VREDNOST)) %>% filter(VREDNOST != 0)
   return(tabela5)
 }
 

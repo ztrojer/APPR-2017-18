@@ -25,10 +25,9 @@ Raziskoval bom proizvodnjo in porabo električne energije v Sloveniji in Evropi.
 Odgovoril bom na naslednja vprašanja:
 
   1. kako prodaja električnih vozil vpliva na proizvodnjo električne energije,
-  2. iz katerih virov je proizvedene največ energije,
-  3. kdaj se lahko spet pojavi energetska kriza (električna energija).
-
-
+  2. iz katerih virov je proizvedene največ energije.
+  
+  
 ### Podatkovni viri 
 
 1. http://www.energetika-portal.si/statistika/ (.CSV)
@@ -87,3 +86,44 @@ Uvozili smo podatke iz različnih virov (Eurostat (.CSV), drugi viri (.HTML in .
   - `vrednost` - meritev: poraba električne energije za toplotne črpalke.
 
 ***
+
+# Analiza in vizualizacija podatkov
+
+```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE}
+source("vizualizacija/grafi.r", encoding = "UTF-8")
+source("vizualizacija/zemljevid.r", encoding = "UTF-8")
+```
+
+
+```{r graf1, echo=FALSE, message=FALSE, warning=FALSE}
+graf1
+```
+
+
+```{r graf3, echo=FALSE, message=FALSE, warning=FALSE}
+graf3
+```
+
+```{r graf5, echo=FALSE, message=FALSE, warning=FALSE}
+graf5
+```
+
+Vidnega vpliva električnih vozil in toplotnih črpalk na proizvodnjo električne energije ni. Razlog je namreč ta, da so postali električni avtomobili resna alternativa klasičnim avtom šele z uporabo Li-ion baterije zaradi visokih cen goriva. Trenutno so električni avti dražji, vendar bo z masovno proizvodnjo cena padla. Trg je tudi omejen zaradi sorazmerno majhne proizvodnje proizvajalcev baterij.
+Trenutno je na trgu okrog 25 modelov avtomobilov, ki se jih da praktično uporabljati. Največ se jih proda na Japonskem 28%, sledi ZDA z 26%. Kitajska 16%, Francija 11% in Norveška 7%. Najbolj se prodaja model Nissan Leaf z 92.000 prodanimi.
+
+```{r zemljevid1, echo=FALSE, message=FALSE, warning=FALSE}
+zemljevid1
+```
+
+Zemljevid prikazuje države po proizvedeni električni energiji. Iz zemljevida je vidno, da največ energije proizvede Nemčija, sledijo ostale severne države.
+
+```{r zemljevid2, echo=FALSE, message=FALSE, warning=FALSE}
+zemljevid2
+```
+
+Zemljevid prikazuje države po deležu proizvedene energije iz obnovljivih virov.
+Razlogi, zakaj je energija iz obnovljivih virov boljša:
+1. vse oblike energije so drage, ampak s časom postajajo obnovljivi viri cenejši, vsa ostala fosilna goriva pa postajajo dražja,
+2. ko je sistem enkrat vgrajen, je energija vedno zastonj.
+3. medtem ko so fosilna goriva draga, sonce in veter zagotavljata brezplačno energijo, ki je dejansko neomejena. Tehnologija fosilnih goriv je več ali manj zrela, tehnologija obnovljivih virov pa se vsak dan bolj razvija in dopolnjuje, s tem pa zmanjšuje stroške pridobivanja.
+4. svet se bo vedno bolj nagibal k tej obliki energije in čim višji bo ta razvoj, tem nižji bodo stroški elementov.

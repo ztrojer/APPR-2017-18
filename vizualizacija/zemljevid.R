@@ -24,11 +24,11 @@ evropa1$NAME <- gsub("Kosovo", "Former Yugoslav", evropa1$NAME)
 #narisem zemljevide
 
 #Po proizvodnji električne energije
-zemljevid1 <- ggplot() + geom_polygon(data = left_join(evropa, 
-                                                      tabela.1,
-                                                      by = c("NAME" = "DRZAVA")),
-                                     aes(x = long, y = lat, group = group, fill = SKUPNO)) +
-  coord_map(xlim = c(-25, 40), ylim = c(32, 72))
+zemljevid1 <- ggplot() + geom_polygon(data = left_join(evropa, tabela.1,
+                                                       by = c("NAME" = "DRZAVA")),
+                                      aes(x = long, y = lat, group = group, fill = SKUPNO/1000)) +
+  coord_map(xlim = c(-25, 40), ylim = c(32, 72)) +
+  guides(fill = guide_colorbar("Proizvodnja (PJ)"))
 
 #Po deležu električne energije iz obnovljivih virov
 zemljevid2 <- ggplot() + geom_polygon(data = left_join(evropa1, 
