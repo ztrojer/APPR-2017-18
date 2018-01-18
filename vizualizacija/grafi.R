@@ -18,7 +18,7 @@ min1 <- quantile(skupni_podatki1$SKUPNO, 0.1)
 izbrane_drzave1 <- skupni_podatki1 %>% filter(SKUPNO >= top1)
 izbrane_drzave2 <- skupni_podatki1 %>% filter(SKUPNO <= min1)
 
-graf1 <-  ggplot(tabela.1 %>% filter(DRZAVA %in% izbrane_drzave1$DRZAVA)) + aes(x = LETO, y = SKUPNO, colour = DRZAVA) + geom_line()
+graf1 <-  ggplot(tabela.1 %>% filter(DRZAVA %in% izbrane_drzave1$DRZAVA)) + aes(x = LETO, y = SKUPNO, colour = DRZAVA) + geom_line() + ggtitle("PROIZVONJA ENERGIJE PO DRŽAVAH TOP 4")
 graf2 <- ggplot(tabela.1 %>% filter(DRZAVA %in% izbrane_drzave2$DRZAVA)) + aes(x = LETO, y = SKUPNO, colour = DRZAVA) + geom_line()
 
 #GRAF 3
@@ -34,7 +34,7 @@ prodani_avtomobili$LETO <- parse_number(prodani_avtomobili$LETO)
 prodani_avtomobili <- prodani_avtomobili %>% melt(id.vars = 'LETO', variable.name = "TIP", value.name = "STEVILO")
 
 
-graf3 <- ggplot(prodani_avtomobili) + aes(x = LETO, y = STEVILO, colour = TIP) + geom_line()
+graf3 <- ggplot(prodani_avtomobili) + aes(x = LETO, y = STEVILO, colour = TIP) + geom_line() + ggtitle("PRODAJA ELEKTRIČNIH AVTOMOBILOV V EU")
 
 #GRAF 4
 
@@ -47,7 +47,7 @@ top2 <- quantile(skupni_podatki2$POVPRECJE, 0.85)
 
 izbrane_drzave3 <- skupni_podatki2 %>% filter(POVPRECJE >= top2)
 
-graf4 <- ggplot(filter2 %>% filter(DRZAVA %in% izbrane_drzave3$DRZAVA)) + aes(x = LETO, y = VREDNOST, colour = DRZAVA) + geom_line()
+graf4 <- ggplot(filter2 %>% filter(DRZAVA %in% izbrane_drzave3$DRZAVA)) + aes(x = LETO, y = VREDNOST, colour = DRZAVA) + geom_line() + ggtitle("DELEŽ ELEKTRIČNE ENERGIJE IZ OBNOVLJIVIH VIROV")
 
 #GRAF 5
 
@@ -59,7 +59,7 @@ top3 <- quantile(filter3$VREDNOST, 0.8)
 
 izbrane_drzave4 <- skupni_podatki3 %>% filter(VREDNOST > top3)
 
-graf5 <- ggplot(filter3 %>% filter(DRZAVA %in% izbrane_drzave4$DRZAVA)) + aes(x=LETO, y = VREDNOST, colour = DRZAVA) + geom_line()
+graf5 <- ggplot(filter3 %>% filter(DRZAVA %in% izbrane_drzave4$DRZAVA)) + aes(x=LETO, y = VREDNOST, colour = DRZAVA) + geom_line() + ggtitle("PORABLJENA ENERGIJA ZA TOPLOTNE ČRPALKE")
 
 
 

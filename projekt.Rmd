@@ -21,7 +21,8 @@ source("lib/libraries.r", encoding = "UTF-8")
 # Izbira teme
 
 Raziskoval bom proizvodnjo in porabo električne energije v Sloveniji in Evropi. Raziskoval bom, kako vpliva vse večje vključevanje "zelenih" porabnikov energije - električnih vozil in toplotnih črpalk na proizvodnjo energije. Opazoval bom trend trajnostne energije. Zanimajo me države, ki najbolj zmanjšujejo odvisnost od fosilnih virov energije ter zagotavljajo možnosti za zmanjševanje toplogrednih plinov.
-  
+
+![Elektrarna](slika/abc.jpg)  
   
 ### Podatkovni viri 
 
@@ -89,18 +90,29 @@ source("vizualizacija/grafi.R", encoding = "UTF-8")
 source("vizualizacija/zemljevid.R", encoding = "UTF-8")
 ```
 
+Prikaz držav, ki proizvedejo največ energije v Evropi skozi časovno obdobje 1990 – 2015. Opazimo, da zelo izstopa Nemčija. Od leta 1990 do 2002 ima Nemčija čedalje več proizvedene energije, od leta 2002 pa ima različna nihanja. Razlog je najbrž v zapiranju nemških jedrskih elektrarn po letu 2011.
+Države, ki proizvedejo najmanj energije pa so: Črna Gora, Malta, Luxembourg in Litva.
 
 ```{r graf1, echo=FALSE, message=FALSE, warning=FALSE}
 graf1
 ```
 
+Prikaz prodaje električnih avtomobilov in hibridov v Evropi. Dokaj nizka prodaja električnih avtomobilov je posledica visoke cene le teh, saj so se električni avtomobili prebili na trg šele v 21. stoletju.
 
 ```{r graf3, echo=FALSE, message=FALSE, warning=FALSE}
 graf3
 ```
 
+Poraba električne energije za toplotne črpalke. Tukaj je zanimivo, da sem našel statistične podatke samo za 7 evropskih držav. Najbolj izstopa Švedska, sledita pa ji Norveška in Finska. 
+
 ```{r graf5, echo=FALSE, message=FALSE, warning=FALSE}
 graf5
+```
+
+Delež električne energije iz obnovljivih virov: pričakoval sem, da bodo tu izstopale severne države, presenetila pa me je Albanija, ki ima višji delež kot Švedska in Avstrija. 
+
+```{r graf4, echo=FALSE, message=FALSE, warning=FALSE}
+graf4
 ```
 
 Vidnega vpliva električnih vozil in toplotnih črpalk na proizvodnjo električne energije ni. Razlog je namreč ta, da so postali električni avtomobili resna alternativa klasičnim avtom šele z uporabo Li-ion baterije zaradi visokih cen goriva. Trenutno so električni avti dražji, vendar bo z masovno proizvodnjo cena padla. Trg je tudi omejen zaradi sorazmerno majhne proizvodnje proizvajalcev baterij.
@@ -110,7 +122,7 @@ Trenutno je na trgu okrog 25 modelov avtomobilov, ki se jih da praktično uporab
 zemljevid1
 ```
 
-Zemljevid prikazuje države po proizvedeni električni energiji. Iz zemljevida je vidno, da največ energije proizvede Nemčija, sledijo ostale severne države.
+Zemljevid prikazuje države po proizvedeni električni energiji. Iz zemljevida je vidno, da največ energije proizvede Nemčija, sledijo ostale severne države. Najmanj električne energije proizvede Balkan.
 
 ```{r zemljevid2, echo=FALSE, message=FALSE, warning=FALSE}
 zemljevid2
