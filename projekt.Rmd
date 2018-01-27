@@ -80,6 +80,11 @@ Uvozili smo podatke iz različnih virov (Eurostat (.CSV), drugi viri (.HTML in .
   - `leto` - spremenljivka: leto,
   - `drzava` - spremenljivka: ime države,
   - `vrednost` - meritev: poraba električne energije za toplotne črpalke.
+  
+8. `tabela8` - podatki o  površini držav in številu prebivalcev
+  - `država` - spremenljivka: ime države,
+  - `površina` - meritev: površina države v km^2,
+  - `populacija` - meritev: število prebivalcev.
 
 ***
 
@@ -90,8 +95,7 @@ source("vizualizacija/grafi.R", encoding = "UTF-8")
 source("vizualizacija/zemljevid.R", encoding = "UTF-8")
 ```
 
-Prikaz držav, ki proizvedejo največ energije v Evropi skozi časovno obdobje 1990 – 2015. Opazimo, da zelo izstopa Nemčija. Od leta 1990 do 2002 ima Nemčija čedalje več proizvedene energije, od leta 2002 pa ima različna nihanja. Razlog je najbrž v zapiranju nemških jedrskih elektrarn po letu 2011.
-Države, ki proizvedejo najmanj energije pa so: Črna Gora, Malta, Luxembourg in Litva.
+Prikaz držav, ki proizvedejo največ energije v Evropi skozi časovno obdobje 1990 – 2015. Opazim, da v zadnjih letih izstopa Islandija, ki ima po letu 2007 že 0.3 Terajoule proizvedene energije na prebivalca. Pričakovano so skoraj vse države iz severnega dela Evrope. Luxembourg spada v to kategorijo zato, ker ima samo okoli 30 tisoč prebivalcev.
 
 ```{r graf1, echo=FALSE, message=FALSE, warning=FALSE}
 graf1
@@ -109,7 +113,7 @@ Poraba električne energije za toplotne črpalke. Tukaj je zanimivo, da sem naš
 graf5
 ```
 
-Delež električne energije iz obnovljivih virov: pričakoval sem, da bodo tu izstopale severne države, presenetila pa me je Albanija, ki ima višji delež kot Švedska in Avstrija. 
+Delež električne energije iz obnovljivih virov: izstopajo severne države, izstopa pa tudi Črna gora. Pod obnovljive vire se štejejo: biomasa, geotermalna, sončna, vetrna in vodna energija. 
 
 ```{r graf4, echo=FALSE, message=FALSE, warning=FALSE}
 graf4

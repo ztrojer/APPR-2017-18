@@ -20,15 +20,22 @@ evropa1$NAME <- gsub("Montenegro", "Former Yugoslav", evropa1$NAME)
 evropa1$NAME <- gsub("Macedonia", "Former Yugoslav", evropa1$NAME)
 evropa1$NAME <- gsub("Kosovo", "Former Yugoslav", evropa1$NAME)
 
-
 #narisem zemljevide
 
-#Po proizvodnji električne energije
-zemljevid1 <- ggplot() + geom_polygon(data = left_join(evropa, tabela.1,
+#Po proizvodnji električne energije na prebivalca
+zemlj_1 <- tabela.1 %>% group_by(DRZAVA) %>% summarise(SKUPAJ = sum(SKUPNO))
+zemlj_1 <- inner_join(zemlj_1, tabela8, by = c("DRZAVA"))
+zemlj_1["PROIZ_NA_PREB"] <- NA
+zemlj_1$PROIZ_NA_PREB <- zemlj_1$SKUPAJ / zemlj_1$POPULACIJA
+zemlj_1$SKUPAJ <- NULL
+zemlj_1$POVRSINA <- NULL
+zemlj_1$POPULACIJA <- NULL
+zemlj_1$DRZAVA <- gsub("Czech Republic", "Czechia", zemlj_1$DRZAVA)
+
+zemljevid1 <- ggplot() + geom_polygon(data = left_join(evropa, zemlj_1,
                                                        by = c("NAME" = "DRZAVA")),
-                                      aes(x = long, y = lat, group = group, fill = SKUPNO/1000)) +
-  coord_map(xlim = c(-25, 40), ylim = c(32, 72)) +
-  guides(fill = guide_colorbar("Proizvodnja (PJ)"))
+                                      aes(x = long, y = lat, group = group, fill = PROIZ_NA_PREB)) +
+  coord_map(xlim = c(-25, 40), ylim = c(32, 72))
 
 #Po deležu električne energije iz obnovljivih virov
 zemljevid2 <- ggplot() + geom_polygon(data = left_join(evropa1, 

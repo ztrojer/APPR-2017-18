@@ -1,6 +1,6 @@
 # 2. faza: Uvoz podatkov
 
-#sl <- locale("sl", decimal_mark = ",", grouping_mark = ".")
+en <- locale("en", decimal_mark = ".", grouping_mark = ",")
 
 #Funkcija, ki uvozi tabelo 1: Proizvodnja električne energije po proizvodnih delih v EU
 uvozi.tabela1 <- function () {
@@ -132,7 +132,7 @@ tabela5 <- uvozi.tabela5()
 #Funkcija, ki uvozi tabelo 6: Delež električne energije iz obnovljivih virov
 uvozi.tabela6 <- function() {
   stolpci6 <- c("LETO", "DRZAVA", "ENOTA", "PRODUKT", "VREDNOST")
-  tabela6 <- read_csv("podatki/delez_zelene_e/delez_zelene_e.csv", locale=locale(encoding="UTF-8"),
+  tabela6 <- read_csv("podatki/delez_zelene_e/delez_zelene_e1.csv", locale=locale(encoding="UTF-8"),
                       col_names= stolpci6,
                       skip = 1,
                       na = c("0",":","0.0"))
@@ -154,7 +154,7 @@ uvozi.tabela6 <- function() {
   
   return(tabela6)
 }
-  
+
 tabela6 <- uvozi.tabela6()
 
 
@@ -185,3 +185,30 @@ uvozi.tabela7 <- function() {
 }
 
 tabela7 <- uvozi.tabela7()
+
+
+# Funkcija, ki uvozi iz Wikipedije - število prebivalcev in površino države
+uvozi.tabela8 <- function() {
+  link <- "https://en.wikipedia.org/wiki/Area_and_population_of_European_countries"
+  stran <- html_session(link) %>% read_html()
+  tabela8 <- stran %>% html_nodes(xpath="//table[@class='wikitable sortable']") %>%
+    .[[1]] %>% html_table(dec = ",")
+  for (i in 1:ncol(tabela8)) {
+    if (is.character(tabela8[[i]])) {
+      Encoding(tabela8[[i]]) <- "UTF-8"
+    }
+  }
+  
+  colnames(tabela8) <- c("DRZAVA", "GOSTOTA_PREBIVALSTVA", "POVRSINA", "POPULACIJA")
+  tabela8$'DRZAVA' <- gsub("France \\(European part\\)", "France", tabela8$'DRZAVA')
+  tabela8$'GOSTOTA_PREBIVALSTVA' <- NULL
+  for (col in c("POVRSINA", "POPULACIJA")) {
+    tabela8[[col]] <- parse_number(tabela8[[col]], na = "-", locale = en)
+  }
+  for (col in c("DRZAVA")) {
+    tabela8[[col]] <- factor(tabela8[[col]])
+  }
+  return(tabela8)
+}
+
+tabela8 <- uvozi.tabela8()

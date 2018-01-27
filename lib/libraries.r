@@ -11,6 +11,8 @@ library(tidyr)
 library(ggplot2)
 library(tibble)
 library(shiny)
+library(gridExtra)
+library(cowplot)
 
 # Uvozimo funkcije za pobiranje in uvoz zemljevida.
 source("lib/uvozi.zemljevid.r", encoding = "UTF-8")

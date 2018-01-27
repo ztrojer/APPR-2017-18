@@ -30,6 +30,8 @@ Raziskoval bom proizvodnjo in porabo električne energije v Sloveniji in Evropi.
 (leto, država, vrednost)
 #### Tabela 7: poraba električne energije za toplotne črpalke
 (leto, država, vrednost)
+#### Tabela 8: površina držav Evrope (km^2) in število prebivalcev
+(država, površina, populacija)
 
 ## Program
 
