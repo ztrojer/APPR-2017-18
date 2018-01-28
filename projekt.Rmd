@@ -95,16 +95,18 @@ source("vizualizacija/grafi.R", encoding = "UTF-8")
 source("vizualizacija/zemljevid.R", encoding = "UTF-8")
 ```
 
-Prikaz držav, ki proizvedejo največ energije v Evropi skozi časovno obdobje 1990 – 2015. Opazim, da v zadnjih letih izstopa Islandija, ki ima po letu 2007 že 0.3 Terajoule proizvedene energije na prebivalca. Pričakovano so skoraj vse države iz severnega dela Evrope. Luxembourg spada v to kategorijo zato, ker ima samo okoli 30 tisoč prebivalcev.
+Prikaz držav, ki proizvedejo največ (A) in najmanj (B) energije na prebivalca v Evropi skozi časovno obdobje 1990 – 2015. Opazim, da v zadnjih letih izstopa Islandija, ki ima po letu 2007 že 0.3 Terajoule proizvedene energije na prebivalca. Pričakovano so skoraj vse države iz severnega dela Evrope. Luxembourg spada v to kategorijo zato, ker ima samo okoli 30 tisoč prebivalcev. Pri državah, ki proizvedejo najmanj energije na prebivalca spada tudi Litva, ki uvozi 70% energije, večino iz Švedske. Cena elektrike je v Litvi ena najvišjih v Evropi. 
+Opazim, da je v letih 1995 - 2000 velik skok pri proizvodnji energije na Nizozemskem. V tem času so zgradili veliko vetrnih elektrarn.
+Razlog, zakaj Moldavija proizvede najmanj energije glede na prebivalca je ta, da ima zelo malo virov fosilnih goriv.
 
-```{r graf1, echo=FALSE, message=FALSE, warning=FALSE}
-graf1
+```{r graf_skupaj1, echo=FALSE, message=FALSE, warning=FALSE}
+graf_skupaj1
 ```
 
-Prikaz prodaje električnih avtomobilov in hibridov v Evropi. Dokaj nizka prodaja električnih avtomobilov je posledica visoke cene le teh, saj so se električni avtomobili prebili na trg šele v 21. stoletju.
+Prikaz prodaje električnih avtomobilov in hibridov v Evropi. Dokaj nizka prodaja električnih avtomobilov je posledica visoke cene le teh, saj so se električni avtomobili prebili na trg šele v 21. stoletju. Opazimo, da se poraba električne energije v transportu povečuje z večjo prodajo električnih avtomobilov. Trenutno je na trgu okrog 25 modelov avtomobilov, ki se jih da praktično uporabljati. Največ se jih proda na Japonskem 28%, sledi ZDA z 26%. Kitajska 16%, Francija 11% in Norveška 7%. Najbolj se prodaja model Nissan Leaf z 92.000 prodanimi.
 
-```{r graf3, echo=FALSE, message=FALSE, warning=FALSE}
-graf3
+```{r graf_skupaj2, echo=FALSE, message=FALSE, warning=FALSE}
+graf_skupaj2
 ```
 
 Poraba električne energije za toplotne črpalke. Tukaj je zanimivo, da sem našel statistične podatke samo za 7 evropskih držav. Najbolj izstopa Švedska, sledita pa ji Norveška in Finska. 
@@ -113,14 +115,14 @@ Poraba električne energije za toplotne črpalke. Tukaj je zanimivo, da sem naš
 graf5
 ```
 
-Delež električne energije iz obnovljivih virov: izstopajo severne države, izstopa pa tudi Črna gora. Pod obnovljive vire se štejejo: biomasa, geotermalna, sončna, vetrna in vodna energija. 
+Delež energije iz obnovljivih virov (pod obnovljive vire se šteje: biomasa, geotermalna, sončna, vetrna in vodna energija). Izstopajo severne države: Islandija, Norveška, Švedska in Finska. Izstopa tudi Albanija. Črna linija predstavlja evropski cilj do leta 2020. Kot opazimo, je skoraj polovica teh držav 
+že nad to mejo. 
 
-```{r graf4, echo=FALSE, message=FALSE, warning=FALSE}
-graf4
+```{r graf8, echo=FALSE, message=FALSE, warning=FALSE}
+graf8
 ```
 
-Vidnega vpliva električnih vozil in toplotnih črpalk na proizvodnjo električne energije ni. Razlog je namreč ta, da so postali električni avtomobili resna alternativa klasičnim avtom šele z uporabo Li-ion baterije zaradi visokih cen goriva. Trenutno so električni avti dražji, vendar bo z masovno proizvodnjo cena padla. Trg je tudi omejen zaradi sorazmerno majhne proizvodnje proizvajalcev baterij.
-Trenutno je na trgu okrog 25 modelov avtomobilov, ki se jih da praktično uporabljati. Največ se jih proda na Japonskem 28%, sledi ZDA z 26%. Kitajska 16%, Francija 11% in Norveška 7%. Najbolj se prodaja model Nissan Leaf z 92.000 prodanimi.
+
 
 ```{r zemljevid1, echo=FALSE, message=FALSE, warning=FALSE}
 zemljevid1

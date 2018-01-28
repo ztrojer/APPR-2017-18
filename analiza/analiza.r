@@ -27,7 +27,17 @@ graf_pred_isl_mgam <- graf_pred_isl + geom_smooth(method = "gam", formula = y ~ 
 
 
 #Trend prodaje električnih avtomobilov
-prodani_avtomobili_el <- prodani_avtomobili %>% filter(TIP == "PRODANI_AVTOMOBILI")
+prodani_avtomobili_el <- prodani_avtomobili %>% filter(TIP == "PRODANI_AVTOMOBILI_EL")
 pred_avt <- lm(data = prodani_avtomobili_el, STEVILO ~ LETO)
 predict(pred_avt, data.frame(LETO=seq(2016,2020, 1)))
-graf_pred_avt <- ggplot(prodani_avtomobili_el) + aes(x = LETO, y = STEVILO) + geom_point() + geom_smooth(method = "lm")
+prodani_avtomobili_hib <- prodani_avtomobili %>% filter(TIP == "PRODANI_AVTOMOBILI_HIB")
+pred_avt_h <- lm(data = prodani_avtomobili_hib, STEVILO ~ LETO)
+predict(pred_avt_h, data.frame(LETO=seq(2016,2020, 1)))
+
+
+
+#transport
+transport <- tabela.panoga %>% filter(TIP == "Final Energy Consumption - Transport")
+pred_tran <- lm(data = transport, VREDNOST ~ LETO)
+predict(pred_tran, data.frame(LETO = seq(2016, 2018, 1)))
+graf_pred_tran <- ggplot(pred_tran) + aes(x = LETO, y = VREDNOST)+ geom_point() + geom_smooth(method = "loess")
