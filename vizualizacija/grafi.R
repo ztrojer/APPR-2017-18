@@ -71,6 +71,7 @@ izbrane_drzave4 <- skupni_podatki3 %>% filter(VREDNOST > top3)
 
 graf5 <- ggplot(filter3 %>% filter(DRZAVA %in% izbrane_drzave4$DRZAVA)) + aes(x=LETO, y = VREDNOST, color = DRZAVA) + geom_line()+ labs(title ="Porabljena energija za toplotne črpalke", x = "leto", y = "porabljena energija (TJ)", color ="Država")
 
+#GRAF 6 in 7
 
 #poraba električne energije po panogi
 tabela.panoga <- tabela2 %>% filter(DRZAVA == "European Union")
@@ -84,6 +85,7 @@ graf6 <- ggplot(tabela.panoga) + aes(x=LETO, y = VREDNOST, fill = factor(TIP, la
 graf7 <- ggplot(tabela.panoga %>% filter(TIP == "Final Energy Consumption - Transport")) + aes(x =LETO, y = VREDNOST, color = factor(TIP, labels = "Transport")) + geom_point()+ labs(title ="Poraba električne energije v transportu", x = "leto", y = "porabljena energija (PJ)", color ="") + geom_smooth(method = "loess") + theme(axis.text.x = element_text(angle = 90, hjust = 1))
 graf_skupaj2 <- plot_grid(graf3, graf7, labels = "")
 
+#GRAF 8
 
 #delež energije iz obnovljivih virov
 tabela_obn <- tabela6 %>% filter(LETO == 2004 | LETO == 2016)
