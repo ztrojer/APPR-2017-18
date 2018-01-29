@@ -91,15 +91,6 @@ graf_skupaj2 <- plot_grid(graf3, graf7, labels = "")
 tabela_obn <- tabela6 %>% filter(LETO == 2004 | LETO == 2016)
 tabela_obn <- tabela_obn %>% filter(DRZAVA != "Malta" & DRZAVA !=  "Luxembourg" & DRZAVA !=  "Former Yugoslav")
 
-tabela2004 <- tabela_obn %>% filter(LETO == 2004)
-tabela2016 <- tabela_obn %>% filter(LETO == 2016)
-tabela2016 <- tabela2016 %>% filter(DRZAVA != "Montenegro")
-tabela0416 <- bind_cols(tabela2004, tabela2016)
-tabela0416$VREDNOST1 <- tabela0416$VREDNOST1 - tabela0416$VREDNOST
-colnames(tabela0416) <- c("LETO1", "DRZAVA", "2004", "LETO2", "DRZAVA", "2016")
-tabela0416 <- melt(tabela0416, id.vars = "DRZAVA", variable.name = "LETO", value.name = "VREDNOST")
-tabela0416 <- tabela0416 %>% filter(LETO == "2016" | LETO == "2004")
-tabela0416$LETO <- parse_number(tabela0416$LETO) 
-tabela0416 <- tabela0416 %>% group_by(LETO)
-graf8 <- ggplot(tabela0416, aes(x = reorder(DRZAVA, -VREDNOST), y = VREDNOST, fill = LETO)) + geom_bar(stat = "identity")+ labs(title ="Delež energije iz obnovljivih virov", x = "država", y = "delež energije iz obnovljivih virov", fill = "Leto") + theme(axis.text.x = element_text(angle = 90, hjust = 1)) 
+graf8 <- ggplot(tabela_obn, aes(x = reorder(DRZAVA, -VREDNOST), y = VREDNOST, fill=factor(LETO))) + geom_bar(stat = "identity", position = "dodge") + labs(title ="Delež energije iz obnovljivih virov", x = "država",
+                                                                                                                                       y = "delež energije iz obnovljivih virov", fill = "Leto") + theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.4))
 graf8 <- graf8 + geom_hline(yintercept = 20)

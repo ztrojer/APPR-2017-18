@@ -18,12 +18,22 @@ output:
 source("lib/libraries.r", encoding = "UTF-8")
 ```
 
+![Elektrarna](abc.jpg)  
+
 # Izbira teme
 
 Raziskoval bom proizvodnjo in porabo električne energije v Sloveniji in Evropi. Raziskoval bom, kako vpliva vse večje vključevanje "zelenih" porabnikov energije - električnih vozil in toplotnih črpalk na proizvodnjo energije. Opazoval bom trend trajnostne energije. Zanimajo me države, ki najbolj zmanjšujejo odvisnost od fosilnih virov energije ter zagotavljajo možnosti za zmanjševanje toplogrednih plinov.
 
-![Elektrarna](abc.jpg)  
-  
+Razlogi, zakaj je energija iz obnovljivih virov boljša:
+
+1. vse oblike energije so drage, ampak s časom postajajo obnovljivi viri cenejši, vsa ostala fosilna goriva pa postajajo dražja,
+
+2. ko je sistem enkrat vgrajen, je energija vedno zastonj.
+
+3. medtem ko so fosilna goriva draga, sonce in veter zagotavljata brezplačno energijo, ki je dejansko neomejena. Tehnologija fosilnih goriv je več ali manj zrela, tehnologija obnovljivih virov pa se vsak dan bolj razvija in dopolnjuje, s tem pa zmanjšuje stroške pridobivanja.
+
+4. svet se bo vedno bolj nagibal k tej obliki energije in čim višji bo ta razvoj, tem nižji bodo stroški elementov.
+
 ### Podatkovni viri 
 
 1. http://www.energetika-portal.si/statistika/ (.CSV)
@@ -92,8 +102,8 @@ Uvozili smo podatke iz različnih virov (Eurostat (.CSV), drugi viri (.HTML in .
 # Analiza in vizualizacija podatkov
 
 ```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE}
-source("vizualizacija/grafi.r", encoding = "UTF-8")
-source("vizualizacija/zemljevid.r", encoding = "UTF-8")
+source("vizualizacija/grafi.R", encoding = "UTF-8")
+source("vizualizacija/zemljevid.R", encoding = "UTF-8")
 ```
 
 Prikaz držav, ki proizvedejo največ (A) in najmanj (B) energije na prebivalca v Evropi skozi časovno obdobje 1990 – 2015. Opazim, da v zadnjih letih izstopa Islandija, ki ima po letu 2007 že 0.3 Terajoule proizvedene energije na prebivalca. Pričakovano so skoraj vse države iz severnega dela Evrope. Luxembourg spada v to kategorijo zato, ker ima samo okoli 30 tisoč prebivalcev. Pri državah, ki proizvedejo najmanj energije na prebivalca spada tudi Litva, ki uvozi 70% energije, večino iz Švedske. Cena elektrike je v Litvi ena najvišjih v Evropi. 
@@ -116,29 +126,19 @@ Poraba električne energije za toplotne črpalke. Tukaj je zanimivo, da sem naš
 graf5
 ```
 
-Delež energije iz obnovljivih virov (pod obnovljive vire se šteje: biomasa, geotermalna, sončna, vetrna in vodna energija). Izstopajo severne države: Islandija, Norveška, Švedska in Finska. Izstopa tudi Albanija. Črna linija predstavlja evropski cilj do leta 2020. Kot opazimo, je skoraj polovica teh držav 
-že nad to mejo. 
+Delež energije iz obnovljivih virov (pod obnovljive vire se šteje: biomasa, geotermalna, sončna, vetrna in vodna energija). Izstopajo severne države: Islandija, Norveška, Švedska in Finska. Izstopa tudi Albanija. Medtem ko EU kot celota deluje v skladu s svojimi cilji za leto 2020 (črna črta predstavlja cilj 20%), si morajo nekatere države dodatno prizadevati za izpolnjevanje svojih obveznosti - do časa izpolniti zadane cilje.
 
 ```{r graf8, echo=FALSE, message=FALSE, warning=FALSE}
 graf8
 ```
 
-Razlogi, zakaj je energija iz obnovljivih virov boljša:
-
-1. vse oblike energije so drage, ampak s časom postajajo obnovljivi viri cenejši, vsa ostala fosilna goriva pa postajajo dražja,
-
-2. ko je sistem enkrat vgrajen, je energija vedno zastonj.
-
-3. medtem ko so fosilna goriva draga, sonce in veter zagotavljata brezplačno energijo, ki je dejansko neomejena. Tehnologija fosilnih goriv je več ali manj zrela, tehnologija obnovljivih virov pa se vsak dan bolj razvija in dopolnjuje, s tem pa zmanjšuje stroške pridobivanja.
-
-4. svet se bo vedno bolj nagibal k tej obliki energije in čim višji bo ta razvoj, tem nižji bodo stroški elementov.
-
+Obnovljiva energija v EU se je v zadnjih letih močno povečala. Konkretneje se je delež energije iz obnovljivih virov v bruto končni porabi energije v zadnjih letih skoraj podvojil, in sicer s približno 8,5% v letu 2004 do 17,0% v letu 2016.
 
 ```{r zemljevid1, echo=FALSE, message=FALSE, warning=FALSE}
 zemljevid1
 ```
 
-Zemljevid prikazuje države po proizvedeni električni energiji na prebivalca. Iz zemljevida je vidno, da največ energije proizvedejo severne države, najmanj pa vzhodne države. Presenetljivo je, da je Nemčija nekje v povprečju celotne Evrope.
+Zemljevid prikazuje države po proizvedeni električni energiji na prebivalca. Iz zemljevida je vidno, da največ energije proizvedejo severne države, najmanj pa vzhodne države. Presenetljivo je, da je Nemčija nekje v povprečju celotne Evrope. 
 
 ```{r zemljevid2, echo=FALSE, message=FALSE, warning=FALSE}
 zemljevid2
@@ -151,6 +151,8 @@ zemljevid3
 Zemljevid prikazuje države po deležu proizvedene energije iz obnovljivih virov. Najvišji delež imajo severne države, sledi jugovzhod. Opazim, da se trend dviguje
 
 
+
+
 ```{r analiza, echo=FALSE, message=FALSE, warning=FALSE}
 source("analiza/analiza.r", encoding = "UTF-8")
 ```
@@ -161,4 +163,13 @@ model4
 
 ```{r model1, echo=FALSE, message=FALSE, warning=FALSE}
 model1
+```
+
+
+
+
+
+#Aplikacija
+```{r shiny, echo = FALSE,message=FALSE, warning=FALSE}
+shinyAppDir("shiny", options=list(width="100%", height=1000))
 ```
