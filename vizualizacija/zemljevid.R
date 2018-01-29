@@ -13,12 +13,8 @@ tabela.1$DRZAVA <- gsub("Czech Republic", "Czechia", tabela.1$DRZAVA)
 tabela.1$DRZAVA <- gsub("Bosnia and Herzegovina", "Bosnia and Herz.", tabela.1$DRZAVA)  
 filter2$DRZAVA <- gsub("Czech Republic", "Czechia", filter2$DRZAVA)
 filter2$DRZAVA <- gsub("Bosnia and Herzegovina", "Bosnia and Herz.", filter2$DRZAVA)  
-evropa1$NAME <- gsub("Serbia", "Former Yugoslav", evropa1$NAME)
-evropa1$NAME <- gsub("Bosnia and Herz.", "Former Yugoslav", evropa1$NAME)
-evropa1$NAME <- gsub("Albania", "Former Yugoslav", evropa1$NAME)
-evropa1$NAME <- gsub("Montenegro", "Former Yugoslav", evropa1$NAME)
-evropa1$NAME <- gsub("Macedonia", "Former Yugoslav", evropa1$NAME)
-evropa1$NAME <- gsub("Kosovo", "Former Yugoslav", evropa1$NAME)
+evropa1$NAME <- gsub("Macedonia", "Macedonia", evropa1$NAME)
+
 
 #narisem zemljevide
 

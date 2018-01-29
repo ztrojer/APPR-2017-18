@@ -24,7 +24,7 @@ uvozi.tabela1 <- function () {
     tabela1$DRZAVA <- gsub(" \\(until 1990 former territory of the FRG\\)", "", tabela1$DRZAVA)
     tabela1$DRZAVA <- gsub("Former Yugoslav Republic of Macedonia, the", "Former Yugoslav", tabela1$DRZAVA)
     tabela1$DRZAVA <- gsub(" \\(under United Nations Security Council Resolution 1244/99\\)", "", tabela1$DRZAVA)
-    
+    tabela1$TIP <- trimws(tabela1$TIP)
     return(tabela1)
   }
   

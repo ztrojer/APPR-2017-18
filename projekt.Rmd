@@ -138,20 +138,7 @@ Obnovljiva energija v EU se je v zadnjih letih močno povečala. Konkretneje se 
 zemljevid1
 ```
 
-Zemljevid prikazuje države po proizvedeni električni energiji na prebivalca. Iz zemljevida je vidno, da največ energije proizvedejo severne države, najmanj pa vzhodne države. Presenetljivo je, da je Nemčija nekje v povprečju celotne Evrope. 
-
-```{r zemljevid2, echo=FALSE, message=FALSE, warning=FALSE}
-zemljevid2
-```
-
-```{r zemljevid3, echo=FALSE, message=FALSE, warning=FALSE}
-zemljevid3
-``` 
-
-Zemljevid prikazuje države po deležu proizvedene energije iz obnovljivih virov. Najvišji delež imajo severne države, sledi jugovzhod. Opazim, da se trend dviguje
-
-
-
+Zemljevid prikazuje države po proizvedeni električni energiji na prebivalca. Iz zemljevida je vidno, da največ energije proizvedejo severne države, najmanj pa vzhodne države. Presenetljivo je, da je Nemčija nekje v povprečju celotne Evrope.
 
 ```{r analiza, echo=FALSE, message=FALSE, warning=FALSE}
 source("analiza/analiza.r", encoding = "UTF-8")
@@ -161,11 +148,14 @@ source("analiza/analiza.r", encoding = "UTF-8")
 model4
 ```
 
+Zgornji graf prikazuje napoved prodaje električnih in hibridnih avtomobilov v letih 2017, 2018 in 2019. Po napovedih bo v prihodnjih letih še večja prodaja hibridnih in električnih avtomobilov. Po napovedi bo leta 2019 prodanih 185250 hibridnih in 150000 električnih avtomobilov.
+
 ```{r model1, echo=FALSE, message=FALSE, warning=FALSE}
 model1
 ```
 
-
+Graf prikazuje porabo električne energije v transportu in napoved porabe v letih 2016, 2017 in 2018. Opazim, da se poraba električne energije v transportu povečuje z prodajo električnih in hibridnih avtomobilov. 
+Prometni sektor je porabil le 2,3% celotne porabe električne energije v Evropi. 
 
 
 

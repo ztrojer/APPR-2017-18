@@ -27,7 +27,9 @@ shinyServer(function(input, output) {
 output$graf2 <- renderPlot({
   data <- filter(tabela1, DRZAVA == input$drzava)
   
-  g2 <- ggplot(data = data, aes(x = LETO, y = VREDNOST, color=factor(TIP))) + geom_line(stat = "identity")
+  g2 <- ggplot(data = data %>% filter(TIP %in% input$tip),
+               aes(x = LETO, y = VREDNOST/1000, color = TIP)) + geom_line(stat = "identity") +
+    ylab("Proizvidnja (PJ)")
   g2
 })
 

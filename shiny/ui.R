@@ -19,15 +19,15 @@ shinyUI(navbarPage(title="Električna energija",
                             plotOutput('graf1')),
                    
                    tabPanel(title = "Proizvedena električna energija po proizvodnih delih",
-                            mainPanel("Na spodnjem grafu si lahko ogledamo, iz katerih elektrarn je proivedena energija v državi."),
+                            mainPanel("Na spodnjem grafu si lahko ogledamo, iz katerih elektrarn je proizvedena električna energija v državi."),
                             selectInput(inputId = 'drzava',
                                         label = 'Država:',
                                         choices = unique(tabela1$DRZAVA),
                                         multiple = FALSE),
                             checkboxGroupInput(inputId = 'tip',
                                          label = 'Tip elektrarne:',
-                                         choiceValues = list("Anthracite","Biogases", "Combustible Fuels", "Gas / Diesel Oil", "Geothermal", "Hydro", "Lignite/Brown Coal", "Natural Gas", "Other Bituminous Coal", "Pumped Hydro", "Solar Photovoltaic", "Solid biofuels excluding charcoal","Wind"),
-                                         choiceNames = list("Anthracite","Biogases", "Combustible Fuels", "Gas / Diesel Oil", "Geothermal", "Hydro", "Lignite/Brown Coal", "Natural Gas", "Other Bituminous Coal", "Pumped Hydro", "Solar Photovoltaic", "Solid biofuels excluding charcoal","Wind")),
+                                         choiceValues = list("Solar Photovoltaic","Nuclear","Hydro","Pumped Hydro","Wind","Combustible Fuels","Anthracite", "Other Bituminous Coal","Lignite/Brown Coal","Oil shale and oil sands","Gas / Diesel Oil","Natural Gas","Solid biofuels excluding charcoal","Biogases"),
+                                         choiceNames = list("sončna elektrarna","jedrska elektrarna","hidroelektrarna","črpalna hidroelektrarna","vetrna elektrarna","gorljiva goriva","antracit", "bituminozni premog","rjavi premog","naftni skrilavec","plin in dizel","zemeljski plin","trda goriva brez premoga","bioplin")),
                             plotOutput('graf2'))
                    
 ))
