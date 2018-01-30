@@ -7,6 +7,8 @@ output:
     includes:
       in_header: lib/styles.sty
     latex_engine: xelatex
+    runtime: shiny
+
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
@@ -106,7 +108,7 @@ source("vizualizacija/grafi.R", encoding = "UTF-8")
 source("vizualizacija/zemljevid.R", encoding = "UTF-8")
 ```
 
-Prikaz držav, ki proizvedejo največ (A) in najmanj (B) energije na prebivalca v Evropi skozi časovno obdobje 1990 – 2015. Opazim, da v zadnjih letih izstopa Islandija, ki ima po letu 2007 že 0.3 Terajoule proizvedene energije na prebivalca. Pričakovano so skoraj vse države iz severnega dela Evrope. Luxembourg spada v to kategorijo zato, ker ima samo okoli 30 tisoč prebivalcev. Pri državah, ki proizvedejo najmanj energije na prebivalca spada tudi Litva, ki uvozi 70% energije, večino iz Švedske. Cena elektrike je v Litvi ena najvišjih v Evropi. 
+Prikaz držav, ki proizvedejo največ (A) in najmanj (B) energije na prebivalca v Evropi skozi časovno obdobje 1990 – 2015. Opazim, da v zadnjih letih izstopa Islandija, ki ima po letu 2007 že 0.3 Terajoule proizvedene energije na prebivalca. Pričakovano so skoraj vse države iz severnega dela Evrope. Luxembourg spada v to kategorijo zato, ker ima samo okoli 30 tisoč prebivalcev. Pri državah, ki proizvedejo najmanj energije na prebivalca spada tudi Litva, ki uvozi 70% energije, večino iz Švedske. Cena elektrike je v Litvi ena najvišjih v Evropi, saj večino elektične energije uvozijo iz drugih držav.
 Opazim, da je v letih 1995 - 2000 velik skok pri proizvodnji energije na Nizozemskem. V tem času so zgradili veliko vetrnih elektrarn.
 Razlog, zakaj Moldavija proizvede najmanj energije glede na prebivalca je ta, da ima zelo malo virov fosilnih goriv.
 
@@ -127,37 +129,35 @@ graf5
 ```
 
 Delež energije iz obnovljivih virov (pod obnovljive vire se šteje: biomasa, geotermalna, sončna, vetrna in vodna energija). Izstopajo severne države: Islandija, Norveška, Švedska in Finska. Izstopa tudi Albanija. Medtem ko EU kot celota deluje v skladu s svojimi cilji za leto 2020 (črna črta predstavlja cilj 20%), si morajo nekatere države dodatno prizadevati za izpolnjevanje svojih obveznosti - do časa izpolniti zadane cilje.
+Obnovljiva energija v EU se je v zadnjih letih močno povečala. Konkretneje se je delež energije iz obnovljivih virov v bruto končni porabi energije v zadnjih letih skoraj podvojil, in sicer s približno 8,5% v letu 2004 do 17,0% v letu 2016
 
 ```{r graf8, echo=FALSE, message=FALSE, warning=FALSE}
 graf8
 ```
 
-Obnovljiva energija v EU se je v zadnjih letih močno povečala. Konkretneje se je delež energije iz obnovljivih virov v bruto končni porabi energije v zadnjih letih skoraj podvojil, in sicer s približno 8,5% v letu 2004 do 17,0% v letu 2016.
+Zemljevid prikazuje države po proizvedeni električni energiji na prebivalca. Iz zemljevida je vidno, da največ energije proizvedejo severne države, najmanj pa vzhodne države. Presenetljivo je, da je Nemčija nekje v povprečju celotne Evrope.
 
 ```{r zemljevid1, echo=FALSE, message=FALSE, warning=FALSE}
 zemljevid1
 ```
 
-Zemljevid prikazuje države po proizvedeni električni energiji na prebivalca. Iz zemljevida je vidno, da največ energije proizvedejo severne države, najmanj pa vzhodne države. Presenetljivo je, da je Nemčija nekje v povprečju celotne Evrope.
 
 ```{r analiza, echo=FALSE, message=FALSE, warning=FALSE}
 source("analiza/analiza.r", encoding = "UTF-8")
 ```
 
+Spodnji graf prikazuje napoved prodaje električnih in hibridnih avtomobilov v letih 2017, 2018 in 2019. Po napovedih bo v prihodnjih letih še večja prodaja hibridnih in električnih avtomobilov. Po napovedi bo leta 2019 prodanih 185250 hibridnih in 150000 električnih avtomobilov.
+
 ```{r model4, echo=FALSE, message=FALSE, warning=FALSE}
 model4
 ```
 
-Zgornji graf prikazuje napoved prodaje električnih in hibridnih avtomobilov v letih 2017, 2018 in 2019. Po napovedih bo v prihodnjih letih še večja prodaja hibridnih in električnih avtomobilov. Po napovedi bo leta 2019 prodanih 185250 hibridnih in 150000 električnih avtomobilov.
+Graf prikazuje porabo električne energije v transportu in napoved porabe v letih 2016, 2017 in 2018. Opazim, da se poraba električne energije v transportu povečuje z prodajo električnih in hibridnih avtomobilov. 
+Prometni sektor je porabil le 2,3% celotne porabe električne energije v Evropi
 
 ```{r model1, echo=FALSE, message=FALSE, warning=FALSE}
 model1
 ```
-
-Graf prikazuje porabo električne energije v transportu in napoved porabe v letih 2016, 2017 in 2018. Opazim, da se poraba električne energije v transportu povečuje z prodajo električnih in hibridnih avtomobilov. 
-Prometni sektor je porabil le 2,3% celotne porabe električne energije v Evropi. 
-
-
 
 #Aplikacija
 ```{r shiny, echo = FALSE,message=FALSE, warning=FALSE}

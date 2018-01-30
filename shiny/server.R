@@ -18,7 +18,8 @@ shinyServer(function(input, output) {
                       filter2 %>% filter(LETO==input$leto1), by = c("NAME" = "DRZAVA"))
     
     g1 <- ggplot() + geom_polygon(data = data ,aes(x = long, y = lat, group = group, fill = VREDNOST)) +
-      coord_map(xlim = c(-25, 40), ylim = c(32, 72))
+      coord_map(xlim = c(-25, 40), ylim = c(32, 72)) + labs(title ="", x = "long",
+                                                            y = "lat", fill = "Delež")
     g1
 })
 

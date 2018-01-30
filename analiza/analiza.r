@@ -14,7 +14,8 @@ library(mgcv)
   #summary(tran)
   
   #izris modela
-  model1 <- ggplot(transport,  aes(x =LETO, y = VREDNOST))  + geom_point()+ geom_smooth(method = "loess")
+  model1 <- ggplot(transport, aes(x = LETO, y = VREDNOST)) + geom_point() +
+    geom_smooth(method = "gam", formula = y ~ s(x), fullrange = TRUE)
   #print(model1)
   
   #predikcija
@@ -87,7 +88,8 @@ vse <- bind_cols(napoved2, napoved3)
 colnames(vse) <- c("LETO", "elektricni", "LETO", "hibridni")
 vse <- melt(vse, id.vars="LETO", variable.name = "LETO", value.name = "STEVILO")
 colnames(vse) <- c("LETO", "TIP", "STEVILO")
-model4 <- graf3 + geom_smooth(method = "lm")
+model4 <- graf3 + geom_smooth(method = "lm", fullrange = TRUE, se = FALSE) +
+  ylim(0, 200000) + scale_x_continuous(breaks = seq(2010, 2020, 2))
 model4 <- model4 + geom_point(data=vse, aes(x=LETO, y=STEVILO, color=TIP), color="green", size=2) + ggtitle("Napoved prodaje avtomobilov")
 model4 <- model4 + annotate("text", x = 2016, y=25000, label = enacba(pro2), parse=TRUE)
 model4 <- model4 + annotate("text", x = 2016, y=15000, label = enacba(pro1), parse=TRUE)

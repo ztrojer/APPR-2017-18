@@ -26,6 +26,7 @@ shinyUI(navbarPage(title="Električna energija",
                                         multiple = FALSE),
                             checkboxGroupInput(inputId = 'tip',
                                          label = 'Tip elektrarne:',
+                                         selected =c("Hydro","Wind","Solar Photovoltaic"),
                                          choiceValues = list("Solar Photovoltaic","Nuclear","Hydro","Pumped Hydro","Wind","Combustible Fuels","Anthracite", "Other Bituminous Coal","Lignite/Brown Coal","Oil shale and oil sands","Gas / Diesel Oil","Natural Gas","Solid biofuels excluding charcoal","Biogases"),
                                          choiceNames = list("sončna elektrarna","jedrska elektrarna","hidroelektrarna","črpalna hidroelektrarna","vetrna elektrarna","gorljiva goriva","antracit", "bituminozni premog","rjavi premog","naftni skrilavec","plin in dizel","zemeljski plin","trda goriva brez premoga","bioplin")),
                             plotOutput('graf2'))
